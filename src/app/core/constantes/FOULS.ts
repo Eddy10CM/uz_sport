@@ -3,7 +3,7 @@ import { Foul } from '../class/foul';
 export const FOULS: Foul [] = [
     {
         Id: 1,
-        Foul: false 
+        Foul: true 
     },
     {
         Id: 2,

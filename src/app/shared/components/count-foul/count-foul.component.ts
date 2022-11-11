@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Foul } from '../../../core/class/foul';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Foul } from 'src/app/core/class/foul';
 
 @Component({
   selector: 'app-count-foul',
@@ -7,13 +7,18 @@ import { Foul } from '../../../core/class/foul';
   styles: [
   ]
 })
-export class CountFoulComponent implements OnInit {
+export class CountFoulComponent implements OnChanges {
 
   @Input() foul: Foul = new Foul();
 
-  constructor() { }
+  checked = false;
 
-  ngOnInit(): void {
+  constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.foul)
+    this.checked = this.foul.Foul;
   }
+
+  
 
 }
