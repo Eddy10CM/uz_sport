@@ -6,6 +6,7 @@ import { ThisIsUsComponent } from "./this-is-us/this-is-us.component";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LeagueComponent } from './league/league.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
             {
                 path: 'league/:league',
                 component: LeagueComponent
+            },
+            {
+                path: 'profile',
+                component: ProfileComponent
             }
         ]
     }

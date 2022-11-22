@@ -20,14 +20,14 @@ export class HomeComponent implements OnInit {
 
   Items!: Observable<any[]>;
   constructor(private apiService: AuthService, firestore: AngularFirestore) {
-    this.Items = firestore.collection('Login', ref => ref.where('username', '==', 'up.ulises.o@gmail.com')).valueChanges();
+    /*this.Items = firestore.collection('Login', ref => ref.where('username', '==', 'up.ulises.o@gmail.com')).valueChanges();
     console.log("🚀 ~ file: home.component.ts ~ line 24 ~ HomeComponent ~ constructor ~ this.Items", this.Items)
     let y = firestore.collection('Login');
     const j = y.get();
     j.subscribe(x => {
       x.docs.map(y => console.log(y.data()))
     });
-    console.log("🚀 ~ file: home.component.ts ~ line 26 ~ HomeComponent ~ constructor ~ y", j)
+    console.log("🚀 ~ file: home.component.ts ~ line 26 ~ HomeComponent ~ constructor ~ y", j)*/
   }
 
   ngOnInit(): void {

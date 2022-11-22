@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
+import { League } from 'src/app/core/class/league';
 
 @Component({
   selector: 'app-register',
@@ -28,23 +31,22 @@ export class RegisterComponent implements OnInit {
       validation: {
         required: true
       }
-    },
-    nombre: {
-      label: 'Nombre',
-      value: '',
-      type: 'text',
-      validation: {
-        required: true
-      }
     }
   };
+
   
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   ValidateForm(form: FormGroup) {
-    console.log("🚀 ~ file: login.component.ts ~ line 47 ~ LoginComponent ~ ValidateForm ~ form", form)
+    if (form.valid) {
+      this.auth.newUser(form.value)
+      .subscribe(d => {
+        console.log(d)
+        this.router.navigate(['/uzsport/profile']);
+      });
+    }
   }
 }

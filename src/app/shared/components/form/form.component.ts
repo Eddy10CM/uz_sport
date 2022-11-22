@@ -12,6 +12,7 @@ export class FormComponent implements OnChanges {
   hide = true;
   @Input() FormJson: any = null;
   @Input() NameButton: string = '';
+  @Input() reset: boolean = false;
   @Output() DelegateEvent: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   fg!: FormGroup;
   Forms: Form[] = [];
@@ -39,8 +40,12 @@ export class FormComponent implements OnChanges {
       MetaData: ObjectProps,
       TransactionalData: []
     };
+    //console.log("🚀 ~ file: form.component.ts ~ line 38 ~ FormComponent ~ ngOnChanges ~ this.form", this.form)
     //this.fg.valueChanges.subscribe((values) => this.DelegateEvent.emit(this.fg));
     //this.Forms.push(this.form);
+    if (this.reset) {
+      this.ResetForm();
+    }
   }
 
   private MapValidators(validators: any) {
@@ -80,6 +85,10 @@ export class FormComponent implements OnChanges {
 
   OnSubmit(Form: FormGroup) {
     this.DelegateEvent.emit(Form);
+  }
+
+  ResetForm() {
+    this.form.FormGroup.reset();
   }
 
   GetErrorMessage(key: string): string {

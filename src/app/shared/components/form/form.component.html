@@ -15,6 +15,13 @@
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
             </mat-form-field>
+
+            <div *ngSwitchCase="'radio'">
+                <!--mat-label> {{ prop.label }} </mat-label-->
+                <mat-radio-group [formControlName]="prop.key">
+                    <mat-radio-button *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-radio-button>
+                </mat-radio-group>
+            </div>
         </ng-container>
         <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
             <!--p>

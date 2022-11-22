@@ -7,13 +7,11 @@ export class User {
     firstName: string;
     gender: string;
     lastName: string;
-    password: string;
-    passwordConfirm: string;
     phone: number;
     photoUrl: string;
     roles: string[];
 
-    constructor(opt: {
+    constructor(opt?: {
         address: string;
         birthday: string;
         city: string;
@@ -21,23 +19,19 @@ export class User {
         firstName: string;
         gender: string;
         lastName: string;
-        password: string;
-        passwordConfirm: string;
         phone: number;
         photoUrl: string;
         roles: string[];
     }) {
-        this.address = opt.address;
-        this.birthday = opt.birthday;
-        this.city = opt.city;
-        this.email = opt.email;
-        this.firstName = opt.firstName;
-        this.gender = opt.gender;
-        this.lastName = opt.lastName;
-        this.password = opt.password;
-        this.passwordConfirm = opt.passwordConfirm;
-        this.phone = opt.phone;
-        this.photoUrl = opt.photoUrl
-        this.roles = opt.roles;
+        this.address = opt != undefined ? opt.address : '';
+        this.birthday = opt != undefined ? opt.birthday : '';
+        this.city = opt != undefined ? opt.city : '';
+        this.email = opt != undefined ? opt.email : '';
+        this.firstName = opt != undefined ? opt.firstName : '';
+        this.gender = opt != undefined ? opt.gender : '';
+        this.lastName = opt != undefined ? opt.lastName : '';
+        this.phone = opt != undefined ? opt.phone : 0;
+        this.photoUrl = opt != undefined ? opt.photoUrl : '';
+        this.roles = opt != undefined ? opt.roles : [];
     }
 }

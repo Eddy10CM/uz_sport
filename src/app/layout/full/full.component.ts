@@ -17,11 +17,14 @@ export class FullComponent implements OnInit {
 
   ngOnInit(): void {
     this._LeagueService.GetAll()
-    .subscribe(data => this.leaguesClass = data);
+    .subscribe(x => {
+      this.leaguesClass = [];
+      console.log("🚀 ~ file: full.component.ts ~ line 21 ~ FullComponent ~ ngOnInit ~ x", x)
+      this.leaguesClass = x
+    });
   }
 
   GoLeague(League: League): void {
-    console.log("🚀 ~ file: full.component.ts ~ line 23 ~ FullComponent ~ GoLeague ~ League", League)
     this.router.navigate(['/uzsport/league',League.NameLeague]);
   }
 }

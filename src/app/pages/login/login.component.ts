@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from 'src/app/models/usuario-model';
 import { FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,14 +28,14 @@ export class LoginComponent implements OnInit {
     password: {
       label: 'Contraseña',
       value: '',
-      type: 'text',
+      type: 'password',
       validation: {
         required: true
       }
     }
   };
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     /*this.user = new UsuarioModel({
@@ -45,5 +47,12 @@ export class LoginComponent implements OnInit {
 
   ValidateForm(form: FormGroup) {
     console.log("🚀 ~ file: login.component.ts ~ line 47 ~ LoginComponent ~ ValidateForm ~ form", form)
+    if (form.valid) {
+      this.auth.login(form.value)
+      .subscribe((data: any) => {
+        this.auth.saveToken(data['idToken']);
+        this.router.navigate(['/uzsport/profile']);
+      });
+    }
   }
 }

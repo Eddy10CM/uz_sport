@@ -15,6 +15,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { PlayersComponent } from './players/players.component';
 import { RefereesComponent } from './referees/referees.component';
 import { CoachesComponent } from './coaches/coaches.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -30,7 +31,8 @@ import { CoachesComponent } from './coaches/coaches.component';
     TeamsComponent,
     PlayersComponent,
     RefereesComponent,
-    CoachesComponent
+    CoachesComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

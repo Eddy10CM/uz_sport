@@ -1,0 +1,12 @@
+<mat-tab-group animationDuration="1000ms">
+    <mat-tab label="Perfil">
+        <div class="col-12 text-center">
+            <app-form [FormJson]="JSONUser" [NameButton]="'Guardar'" [reset]="resetUser" (DelegateEvent)="SaveUser($event)"></app-form>
+        </div>
+    </mat-tab>
+    <mat-tab label="League">
+        <div class="col-12 text-center">
+            <app-form [FormJson]="JSONLeague" [NameButton]="'Guardar'" [reset]="reset" (DelegateEvent)="SaveLeague($event)"></app-form>
+        </div>
+    </mat-tab>
+</mat-tab-group>
