@@ -4,6 +4,10 @@ import { League } from 'src/app/core/class/league';
 import { LeagueService } from '../../shared/services/league.service';
 import { LEAGUEFORM } from '../../core/constantes/LEAGUE';
 import { USERFORM } from 'src/app/core/constantes/USER';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserService } from '../../shared/services/user.service';
+import { Login } from '../../core/class/login';
+import { User } from 'src/app/core/class/users';
 
 @Component({
   selector: 'app-profile',
@@ -20,9 +24,26 @@ export class ProfileComponent implements OnInit {
 
   newLeague!: any;
 
-  constructor(private _league: LeagueService) { }
+  LoginUser!: Login;
+  ShowFormProfile: boolean = false;
+  UsuarioLogeado!: User;
+  IdUsuario: string = '';
+
+  constructor(private _league: LeagueService, private auth: AuthService, private user: UserService) { }
 
   ngOnInit(): void {
+    this.LoginUser = this.auth.getToken;
+    if (this.LoginUser.idToken !== '') {
+      this.user.GetUser(this.LoginUser.email).subscribe(d => {
+        console.log(d);
+        if (d.id === '') {
+          this.ShowFormProfile = true;
+        } else {
+          this.UsuarioLogeado = d.user;
+          this.IdUsuario = d.id;
+        }
+      });
+    }
   }
 
   SaveLeague(form: FormGroup){
@@ -47,11 +68,23 @@ export class ProfileComponent implements OnInit {
 
   SaveUser(form: FormGroup){
     if (form.valid) {
-      console.log(form.value)
-      this.resetUser = true;
+      let newUser = new User({
+        ...form.value
+        ,email: this.LoginUser.email,
+      });
+      console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
 
+      this.user.AddUser(newUser)
+      .then((d) => {
+        console.log("🚀 ~ file: profile.component.ts ~ line 87 ~ ProfileComponent ~ .then ~ d", d)
+      })
+      .catch((err) => {
+        console.log('error', err)
+      });
+    
       setTimeout(() => {
-        this.resetUser = false;
+        this.resetUser = true;
+        this.ShowFormProfile = false;
       }, 100)
     }
   }

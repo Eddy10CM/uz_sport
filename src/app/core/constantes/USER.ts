@@ -70,4 +70,13 @@ export const USERFORM = {
             required: true
         }
     },
+    roles: {
+        label: '',
+        value: '',
+        type: 'select',
+        values: ['Jugador', 'Arbitro', 'Couch'],
+        validation: {
+            required: true
+        }
+    }
 } 

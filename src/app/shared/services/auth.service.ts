@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from 'src/app/models/usuario-model';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Login } from '../../core/class/login';
+import { User } from 'src/app/core/class/users';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,7 @@ import { map } from 'rxjs';
 export class AuthService {
 
   private apiKey = 'AIzaSyBoSt5MX460l1HpklUaXh4Ax6r8nw0hLdk';
-  userToken!: string;
+  userToken!: Login;
   // Crear Usuario
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
 
@@ -34,25 +37,32 @@ export class AuthService {
       returnSecureToken: true
     }
 
-    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`, dataUser)
+    return this.http.post<Login>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`, dataUser)
     .pipe(
-      map((resp: any) => {
-        this.saveToken(resp['idToken'])
+      map((resp: Login) => {
+        this.saveToken = resp;
         return resp;
       })
     );
   }
 
-  saveToken(idToken: string) {
-    this.userToken = idToken;
-    localStorage.setItem('token', idToken)
+
+  getInfoUser(): Observable<User> {
+    return new Observable(observer => {
+      observer.next(new User())
+    })
   }
 
-  getToken() {
-    if(localStorage.getItem('token')) {
-      this.userToken = localStorage.getItem('token')!;
+  set saveToken(idToken: Login) {
+    this.userToken = idToken;
+    localStorage.setItem('user', JSON.stringify(idToken))
+  }
+
+  get getToken() {
+    if(localStorage.getItem('user')) {
+      this.userToken = JSON.parse(localStorage.getItem('user')!);
     } else {
-      this.userToken = '';
+      this.userToken = new Login();
     }
 
     return this.userToken;

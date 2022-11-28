@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
       this.auth.newUser(form.value)
       .subscribe(d => {
         console.log(d)
+        this.auth.saveToken = d;
         this.router.navigate(['/uzsport/profile']);
       });
     }

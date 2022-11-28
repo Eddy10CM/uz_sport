@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     if (form.valid) {
       this.auth.login(form.value)
       .subscribe((data: any) => {
-        this.auth.saveToken(data['idToken']);
+        this.auth.saveToken = data;
         this.router.navigate(['/uzsport/profile']);
       });
     }

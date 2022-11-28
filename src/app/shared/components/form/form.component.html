@@ -13,7 +13,7 @@
                 <input [type]="hide ? 'password' : 'text'" matInput *ngSwitchCase="'password'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </button>
+                </button>
             </mat-form-field>
 
             <div *ngSwitchCase="'radio'">
@@ -22,6 +22,13 @@
                     <mat-radio-button *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-radio-button>
                 </mat-radio-group>
             </div>
+            <mat-form-field appearance="fill" *ngSwitchCase="'select'">
+                <mat-label>Select me</mat-label>
+                <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>
+                    <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
+                </mat-select>
+                <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+            </mat-form-field>
         </ng-container>
         <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
             <!--p>
