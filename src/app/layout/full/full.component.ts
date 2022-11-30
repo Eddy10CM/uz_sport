@@ -10,6 +10,27 @@ import { LeagueService } from '../../shared/services/league.service';
   selector: 'app-full',
   templateUrl: './full.component.html',
   styles: [
+    `
+    @font-face {
+      font-family: uz_sport;
+      src: url(../../../assets/fonts/uz_sport.ttf) format("opentype");
+    }
+    .material-icons{
+      font-family: 'Material Icons'!important;
+    }
+    *{
+        font-family:uz_sport
+    }
+    .square-green{
+      background-color:#90c43c!important
+    }
+    .flex-spacer{
+      flex: 1 1 auto;
+    }
+    .icon-social{
+      color:black
+    }
+    `
   ]
 })
 export class FullComponent implements OnInit {
