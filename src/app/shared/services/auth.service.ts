@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from 'src/app/models/usuario-model';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, share } from 'rxjs';
 import { Login } from '../../core/class/login';
 import { User } from 'src/app/core/class/users';
 import { UserService } from './user.service';
@@ -13,6 +13,7 @@ export class AuthService {
 
   private apiKey = 'AIzaSyBoSt5MX460l1HpklUaXh4Ax6r8nw0hLdk';
   userToken!: Login;
+  private $isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   // Crear Usuario
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
 
@@ -46,11 +47,12 @@ export class AuthService {
     );
   }
 
+  changeIsLogin(logged: boolean): void {
+    this.$isLogin.next(logged);
+  }
 
-  getInfoUser(): Observable<User> {
-    return new Observable(observer => {
-      observer.next(new User())
-    })
+  getInfoUser(): Observable<boolean> {
+    return this.$isLogin.asObservable().pipe(share());
   }
 
   set saveToken(idToken: Login) {

@@ -38,9 +38,11 @@ export class ProfileComponent implements OnInit {
         console.log(d);
         if (d.id === '') {
           this.ShowFormProfile = true;
+          this.auth.changeIsLogin(false);
         } else {
           this.UsuarioLogeado = d.user;
           this.IdUsuario = d.id;
+          this.auth.changeIsLogin(true);
         }
       });
     }
@@ -77,6 +79,7 @@ export class ProfileComponent implements OnInit {
       this.user.AddUser(newUser)
       .then((d) => {
         console.log("🚀 ~ file: profile.component.ts ~ line 87 ~ ProfileComponent ~ .then ~ d", d)
+        this.auth.changeIsLogin(true);
       })
       .catch((err) => {
         console.log('error', err)
