@@ -2,9 +2,7 @@
     <mat-toolbar-row>
         <div fxLayout="row" fxShow="false" fxShow.gt-sm></div>
         
-        <div fxFlexOffset.gt-md="42" fxflex="30" style="font-size:3em">
-            <b>UZ</b> SPORT
-        </div>
+        
         <div class="flex-spacer">
             
         </div>
@@ -12,16 +10,16 @@
             <div class="example-button-row">
                 <div class="example-flex-container">
                     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-            <i class="bi bi-facebook icon-social"></i>
+                        <i class="fa fa-facebook" style="font-weight:bolder;font-size:1.5em" aria-hidden="true"></i>
           </button>
                     <button mat-icon-button  aria-label="Example icon button with a home icon">
-            <i class="bi bi-instagram icon-social"></i>
+            <i class="bi bi-instagram icon-social" style="font-weight:bolder;font-size:1.5em"></i>
           </button>
                     <button mat-icon-button  aria-label="Example icon button with a menu icon">
-            <i class="bi bi-whatsapp icon-social"></i>
+            <i class="bi bi-whatsapp icon-social" style="font-weight:bolder;font-size:1.5em"></i>
           </button>
                     <button mat-icon-button  aria-label="Example icon button with a heart icon">
-                      <i class="bi bi-envelope icon-social"></i>
+                      <i class="bi bi-envelope icon-social" style="font-weight:bolder;font-size:1.5em"></i>
           </button>
 
                 </div>
@@ -29,15 +27,24 @@
         </div>
     </mat-toolbar-row>
     <mat-toolbar-row>
-        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-            <button mat-icon-button class="icon-social"  aria-label="Example icon button with a home icon" routerLink="/uzsport/home">
-        <mat-icon>home</mat-icon>
-      </button>
+
+        <div fxLayout fxLayoutAlign="center center"  style="font-size:3em;text-align: center;width:100%">
+            <b>UZ</b> SPORT
         </div>
-        <div fxFlexOffset.gt-md="37" fxflex="30">
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <div class="col-2">
+            <!-- <button mat-icon-button class="icon-social"  aria-label="Example icon button with a home icon" routerLink="/uzsport/home">
+        <mat-icon>home</mat-icon> -->
+        <i class="bi bi-house-door-fill square-green" style="font-size: 1.5em"></i>
+    
+        </div>
+        <div class="col-8" style="text-align: center;">
             <span>
         <button mat-button routerLink="/uzsport/thisisus">THIS IS UZ</button>
+        <i class="fa fa-circle square-green" style="font-size:10px" aria-hidden="true"></i>
         <button mat-button [matMenuTriggerFor]="leagues">Leagues</button>
+        <i class="fa fa-circle square-green" style="font-size:10px" aria-hidden="true"></i>
         <mat-menu #leagues>
             <button mat-menu-item *ngFor="let league of leaguesClass" (click)="GoLeague(league)" >{{ league.NameLeague}}</button>
             <!--button mat-menu-item>Poniente</button>
@@ -53,10 +60,20 @@
         </mat-menu>
       </span>
         </div>
-        <div fxFlexOffset.gt-md="auto" fxflex="30">
+        <div class="col-2" style="text-align: right;" >
+            <div class="flex-spacer">
+            
+            </div>
             <button mat-icon-button color="warn" [matMenuTriggerFor]="menu" aria-label="Example icon button with a heart icon">
-            <i class="bi bi-person-circle"></i>
-</button>
+            <!-- <i class="bi bi-person-circle"></i> -->
+                <!-- <i class="bi bi-person-fill square-green" style="font-size:2.2em;"></i> -->
+                <div class="avatar" style="display:block">
+                    <img src="../../assets/perfil.webp"/>
+                </div> 
+                <!-- <span class="avatar" style="display:block"></span> -->
+            
+            </button>
+            
             <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="/uzsport/login">Login</button>
                 <button mat-menu-item routerLink="/uzsport/register">Registro</button>
