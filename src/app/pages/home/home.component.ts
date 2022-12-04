@@ -8,6 +8,9 @@ import { Observable } from 'rxjs';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styles: [
+    `
+   
+    `
   ]
 })
 export class HomeComponent implements OnInit {
@@ -29,9 +32,11 @@ export class HomeComponent implements OnInit {
     });
     console.log("🚀 ~ file: home.component.ts ~ line 26 ~ HomeComponent ~ constructor ~ y", j)*/
   }
-
+ 
   ngOnInit(): void {
+   
     //this.apiService.newUser(this.newUserTest).subscribe(data => console.log(data));
   }
-
+  
+  
 }

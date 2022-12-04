@@ -18,7 +18,7 @@ import { FormatTimerPipe } from './pipe/format-timer.pipe';
     CardLeagueComponent,
     CarouselsComponent,
     CountFoulComponent,
-    FormatTimerPipe
+    FormatTimerPipe,
   ],
   imports: [
     CommonModule,
@@ -30,7 +30,8 @@ import { FormatTimerPipe } from './pipe/format-timer.pipe';
     FormComponent,
     CardLeagueComponent,
     CountFoulComponent,
-    FormatTimerPipe
+    FormatTimerPipe,
+    CarouselsComponent
   ]
 })
 export class SharedModule { }
