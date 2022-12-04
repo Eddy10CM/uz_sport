@@ -22,13 +22,27 @@ import { LeagueService } from '../../shared/services/league.service';
         font-family:uz_sport
     }
     .square-green{
-      background-color:#90c43c!important
+      color:#90c43c!important
     }
     .flex-spacer{
       flex: 1 1 auto;
     }
     .icon-social{
       color:black
+    }
+    .fa{
+      font-family: 'FontAwesome'!important;
+    }
+    .avatar{
+      width: 30px;
+      border-radius: 50%;
+      /* background: black!important; */
+      height: 30px;
+    }
+    .avatar img{
+      background-size: cover;
+      width: 30px;
+      border-radius: 50%;
     }
     `
   ]
