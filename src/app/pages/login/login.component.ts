@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   user: UsuarioModel | undefined;
+  loading: boolean = false;
 
   JSONLogin: any = {
     email: {
@@ -48,9 +49,11 @@ export class LoginComponent implements OnInit {
   ValidateForm(form: FormGroup) {
     console.log("🚀 ~ file: login.component.ts ~ line 47 ~ LoginComponent ~ ValidateForm ~ form", form)
     if (form.valid) {
+      this.loading = true;
       this.auth.login(form.value)
       .subscribe((data: any) => {
         this.auth.saveToken = data;
+        this.loading = false;
         this.router.navigate(['/uzsport/profile']);
       });
     }

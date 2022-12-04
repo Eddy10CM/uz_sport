@@ -1,5 +1,8 @@
-<div class="row text-center">
+<div class="row text-center" *ngIf="!loading; else showLoading">
     <div class="col-12">
         <app-form [FormJson]="JSONLogin" [NameButton]="'Inicio Sesión'" (DelegateEvent)="ValidateForm($event)"></app-form>
     </div>
 </div>
+<ng-template #showLoading>
+    <app-loading></app-loading>
+</ng-template>

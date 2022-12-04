@@ -2,13 +2,16 @@
     flex-flow: row wrap;
     display: flex;
 }
+
 @font-face {
     font-family: uz_sport;
     src: url(../assets/fonts/uz_sport.ttf) format("opentype");
-  }
-  *{
+}
+
+* {
     font-family: uz_sport;
-  }
-  .fa{
+}
+
+.fa {
     font-family: 'FontAwesome'!important;
-  }
+}
