@@ -33,7 +33,8 @@ import { CardInfoTorneoComponent } from './components/card-info-torneo/card-info
     CardLeagueComponent,
     CountFoulComponent,
     FormatTimerPipe,
-    CarouselsComponent
+    CarouselsComponent,
+    CardInfoTorneoComponent
   ]
 })
 export class SharedModule { }
