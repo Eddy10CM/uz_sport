@@ -13,6 +13,7 @@ export class AuthService {
 
   private apiKey = 'AIzaSyBoSt5MX460l1HpklUaXh4Ax6r8nw0hLdk';
   userToken!: Login;
+  IdUser!: string;
   private $isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   // Crear Usuario
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
@@ -25,12 +26,12 @@ export class AuthService {
   logout() {
   }
 
-  login(user: UsuarioModel) {
+  login(user: UsuarioModel): Observable<Login> {
     const dataUser = {...user,
       returnSecureToken: true
     }
 
-    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`, dataUser);
+    return this.http.post<Login>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`, dataUser);
   }
 
   newUser(user: UsuarioModel) {
@@ -50,6 +51,24 @@ export class AuthService {
   changeIsLogin(logged: boolean): void {
     this.$isLogin.next(logged);
   }
+
+  IdUserLogin(Id: string): void {
+    this.IdUser = Id;
+    localStorage.setItem('idUser', Id);
+  }
+
+  SaveUser(user: User): void {
+    localStorage.setItem('userInfo', JSON.stringify(user));
+  }
+
+  GetUser(): User {
+    if(localStorage.getItem('userInfo')) {
+      return JSON.parse(localStorage.getItem('userInfo')!);
+    } else {
+      return new User();
+    }
+  }
+
 
   getInfoUser(): Observable<boolean> {
     return this.$isLogin.asObservable().pipe(share());

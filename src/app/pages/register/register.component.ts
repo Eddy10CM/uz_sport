@@ -12,6 +12,7 @@ import { League } from 'src/app/core/class/league';
 })
 export class RegisterComponent implements OnInit {
 
+  loading: boolean = false;
 
   JSONRegister: any = {
     email: {
@@ -42,10 +43,12 @@ export class RegisterComponent implements OnInit {
 
   ValidateForm(form: FormGroup) {
     if (form.valid) {
+      this.loading = true;
       this.auth.newUser(form.value)
       .subscribe(d => {
         console.log(d)
         this.auth.saveToken = d;
+        this.loading = false;
         this.router.navigate(['/uzsport/profile']);
       });
     }
