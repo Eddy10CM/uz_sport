@@ -13,6 +13,7 @@ import { AngularFireAnalyticsModule  } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment.prod';
 import { BlankComponent } from './layout/blank/blank.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { BlankComponent } from './layout/blank/blank.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
