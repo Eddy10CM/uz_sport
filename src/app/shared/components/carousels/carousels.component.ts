@@ -1,27 +1,15 @@
-import { Component, OnInit,ElementRef } from '@angular/core';
+import { Component, OnInit,ElementRef, Input } from '@angular/core';
 export interface Fotos{
   foto:string
   }
 @Component({
   selector: 'app-carousels',
   templateUrl: './carousels.component.html',
-  styles: [
-    `
-   img.image{
-    border-radius:50%!important
-   }
-  `
-  ]
 })
 export class CarouselsComponent implements OnInit {
   
   constructor(private elementRef:ElementRef) { }
-  count:number = 0;
-  numeroDeSliders:number = 0;
-  sliders:any[]=[];
-  indiceInicial:number=-1
-  indiceFinal:number=3
-  fotos:number[]=[1,2,3,4,5,6,7];
+  @Input() tipoImagen:string="square-image";
   imageObject: Array<object> = [
     {
       image: 'assets/img/01.jpg',
@@ -56,32 +44,12 @@ export class CarouselsComponent implements OnInit {
 ];
   ngOnInit(): void {
     // this.carousel('carousel');
-    if(!this.esEntero(this.fotos.length)){
-      this.numeroDeSliders =  Number((this.fotos.length/3).toString().split(".")[0]);
-      
+   
+  }
 
-      for (let index = 0; index < this.numeroDeSliders; index++) {
-        this.sliders=[[this.count]];
-        this.sliders[this.count].push({foto:'1'},{foto:'2'},{foto:'3'})
-        this.count++;
-      }
-    }
-    else{
-      for (let index = 0; index < this.fotos.length; index++) {
-        this.sliders.push(index);
-        
-        this.count++;
-      }
-    }
-  }
-  tresFotos(photos:number[]):number[]{
-    console.log(JSON.parse(JSON.stringify(this.fotos)).slice(this.indiceInicial+=3,this.indiceFinal+=3),"JSON.parse(JSON.stringify(this.fotos)).slice(this.indiceInicial+=3,this.indiceFinal+=3);")
-    return JSON.parse(JSON.stringify(this.fotos)).slice(this.indiceInicial+=3,this.indiceFinal+=3);
-
-  }
-  esEntero(numero:number):boolean{
-    return numero - Math.floor(numero) == 0
-  }
+  // esEntero(numero:number):boolean{
+  //   return numero - Math.floor(numero) == 0
+  // }
   // carousel(contenedor:string):void{
   //   let scrollPosition = 0;
   //   let numeroDeCards = 9;
