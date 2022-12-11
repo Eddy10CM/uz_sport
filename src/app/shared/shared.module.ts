@@ -40,10 +40,8 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
     FormatTimerPipe,
     CarouselsComponent,
     CardInfoTorneoComponent,
-    RolDeJuegoComponent
-  ],
-  bootstrap:[
-    RolDeJuegoComponent
+    RolDeJuegoComponent,
+    GaleryComponent
   ]
 })
 export class SharedModule { }
