@@ -1,6 +1,7 @@
-<div class="contenedor-galery">
-    <div class="galery-photo" [style]="'background-image: url('+foto.url+');background-repeat-x: no-repeat;background-size: cover;'" *ngFor="let foto of fotos">
+<!-- <div class="contenedor-galery">
+    <div class="galery-photo" [style]="'background-image: url('+foto.url+');background-repeat-x: no-repeat;background-size: cover;'" *ngFor="let foto of fotos"> -->
         <!-- <img [src]="foto.url" style="width: 100%"> -->
-    </div>
+    <!-- </div>
    
-</div>
+</div> -->
+<ngx-masonry-gallery [width]="250" [images]="images" ></ngx-masonry-gallery>

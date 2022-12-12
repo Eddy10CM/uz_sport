@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { MasonryGalleryModule } from 'ngx-masonry-gallery';
 
 import { GaleryComponent } from './components/galery/galery.component';
 import { FormComponent } from './components/form/form.component';
@@ -31,7 +32,8 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    MasonryGalleryModule
   ],
   exports: [
     FormComponent,
