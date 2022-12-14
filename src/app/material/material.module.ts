@@ -46,6 +46,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { MatCarouselModule } from 'ng-mat-carousel';
+
 
 @NgModule({
   exports: [
@@ -96,7 +98,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     PortalModule,
     ScrollingModule,
     DialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCarouselModule,
   ]
 })
 export class MaterialModule { }

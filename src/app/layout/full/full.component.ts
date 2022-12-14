@@ -13,7 +13,7 @@ import { LeagueService } from '../../shared/services/league.service';
     `
     @font-face {
       font-family: uz_sport;
-      src: url(../../../assets/fonts/uz_sport.ttf) format("opentype");
+      src: url(../../../assets/fonts/ZXJRTY+bangwhackpow.ttf) format("opentype");
     }
     .material-icons{
       font-family: 'Material Icons'!important;

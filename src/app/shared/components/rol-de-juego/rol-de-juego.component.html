@@ -1,0 +1,138 @@
+<div class="col-md-12" style="padding-top:2.5em;background-color: #e6e6e6;border-radius:25px;min-height:300px;height:auto">
+    <p style="text-align: center;font-weight:bolder;font-size: 3em;">Rol de Juego</p>
+    <div  class="container" style="background-color:white;min-height: 200px;height: auto;margin-bottom: 1.5em;width: 96%;">
+        <div class="col-12">{{startOfWeek.format("MMMM DD, YYYY")}} - {{endOfWeek.format("MMMM DD, YYYY")}}</div>
+        <div style="width: 65%;
+        display: inline-block;">
+
+            <div style="vertical-align:middle" class="row">
+    
+                    <div class="col-2" style="vertical-align:middle"><i (click)="AnteriorSemana()" class="bi bi-caret-left-fill" style="color:lightblue;font-size:3em"></i></div>
+                    <div class="col-8">
+                    <table style="width:100%">
+                        <tr>
+                            <th style="font-size:xx-small" *ngFor="let dia of daysnames ; let i = index">{{dia}}</th>
+                            
+                        </tr>
+                        <tr>
+                            <td *ngFor="let dia of days ; let i = index">{{dia}}</td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div class="col-2" style="vertical-align:middle"><i (click)="SiguienteSemana()" class="bi bi-caret-right-fill" style="color:lightblue;font-size:3em"></i></div>
+            
+            </div> 
+        </div>
+        <div style="width: 35%;
+        display: inline-block;">
+             <input matInput [matDatepicker]="picker">
+             <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+             <mat-datepicker #picker></mat-datepicker>
+        </div>
+        <hr style="border:10px solid black">
+        <div class="row">
+
+            <div style="width:45%;display:inline-block;min-height:100px">
+                <div class="row" style="    min-height: 75px;">
+    
+                    <div class="col-4" style="font-weight: bolder"> AS ROMA</div>
+                    <div class="col-4"><img [src]="'assets/img/image-basquetball.png'" style="width: 40px;
+                        align-content:center;   
+                     " alt="">
+                        
+                    </div>
+                    <div class="col-4"><span style="float:right;font-weight:bolder;right:5px">5</span> </div>
+                </div>
+                <div class="row">
+                    <div style="background-color: black;color:white;padding:1.2em;text-align:center">TEAM Statistics</div> 
+                </div>
+            </div>
+            <div style="width:10%;display:inline-block;text-align:center;vertical-align: middle;font-weight:bolder">FT</div>
+            <div style="width:45%;display:inline-block;">
+                <div class="row" style="    min-height: 75px;">
+    
+                    <div class="col-4" style="font-weight: bolder"> 0</div>
+                    <div class="col-4"><img [src]="'assets/img/image-basquetball.png'" style="width: 40px;
+                        align-content:center;   
+                     " alt="">
+                        
+                    </div>
+                    <div class="col-4"><span style="font-weight:bolder;">CFR Cluji Napoca</span> </div>
+                </div>
+                <div class="row">
+                    <div style="background-color: black;color:white;padding:1.2em;text-align:center">TEAM Statistics</div> 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div style="width:45%;display:inline-block;min-height:100px">
+                <div class="row" style="    min-height: 75px;">
+    
+                    <div class="col-4" style="font-weight: bolder"> AS ROMA</div>
+                    <div class="col-4"><img [src]="'assets/img/image-basquetball.png'" style="width: 40px;
+                        align-content:center;   
+                     " alt="">
+                        
+                    </div>
+                    <div class="col-4"><span style="float:right;font-weight:bolder;right:5px">5</span> </div>
+                </div>
+                <div class="row">
+                    <div style="background-color: black;color:white;padding:1.2em;text-align:center">TEAM Statistics</div> 
+                </div>
+            </div>
+            <div style="width:10%;display:inline-block;text-align:center;vertical-align: middle;font-weight:bolder">FT</div>
+            <div style="width:45%;display:inline-block;">
+                <div class="row" style="    min-height: 75px;">
+    
+                    <div class="col-4" style="font-weight: bolder"> 0</div>
+                    <div class="col-4"><img [src]="'assets/img/image-basquetball.png'" style="width: 40px;
+                        align-content:center;   
+                     " alt="">
+                        
+                    </div>
+                    <div class="col-4"><span style="font-weight:bolder;">CFR Cluji Napoca</span> </div>
+                </div>
+                <div class="row">
+                    <div style="background-color: black;color:white;padding:1.2em;text-align:center">TEAM Statistics</div> 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div style="width:45%;display:inline-block;min-height:100px">
+                <div class="row" style="    min-height: 75px;">
+    
+                    <div class="col-4" style="font-weight: bolder"> AS ROMA</div>
+                    <div class="col-4"><img [src]="'assets/img/image-basquetball.png'" style="width: 40px;
+                        align-content:center;   
+                     " alt="">
+                        
+                    </div>
+                    <div class="col-4"><span style="float:right;font-weight:bolder;right:5px">5</span> </div>
+                </div>
+                <div class="row">
+                    <div style="background-color: black;color:white;padding:1.2em;text-align:center">TEAM Statistics</div> 
+                </div>
+            </div>
+            <div style="width:10%;display:inline-block;text-align:center;vertical-align: middle;font-weight:bolder">FT</div>
+            <div style="width:45%;display:inline-block;">
+                <div class="row" style="    min-height: 75px;">
+    
+                    <div class="col-4" style="font-weight: bolder"> 0</div>
+                    <div class="col-4"><img [src]="'assets/img/image-basquetball.png'" style="width: 40px;
+                        align-content:center;   
+                     " alt="">
+                        
+                    </div>
+                    <div class="col-4"><span style="font-weight:bolder;">CFR Cluji Napoca</span> </div>
+                </div>
+                <div class="row">
+                    <div style="background-color: black;color:white;padding:1.2em;text-align:center">TEAM Statistics</div> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
