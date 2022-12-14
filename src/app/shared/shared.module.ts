@@ -9,6 +9,7 @@ import { CarouselsComponent } from './components/carousels/carousels.component';
 import { CountFoulComponent } from './components/count-foul/count-foul.component';
 import { FormatTimerPipe } from './pipe/format-timer.pipe';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CardMemberComponent } from './components/card-member/card-member.component';
 
 
 
@@ -20,7 +21,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     CarouselsComponent,
     CountFoulComponent,
     FormatTimerPipe,
-    LoadingComponent
+    LoadingComponent,
+    CardMemberComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     CardLeagueComponent,
     CountFoulComponent,
     FormatTimerPipe,
-    LoadingComponent
+    LoadingComponent,
+    CardMemberComponent
   ]
 })
 export class SharedModule { }

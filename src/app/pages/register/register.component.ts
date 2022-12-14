@@ -45,11 +45,18 @@ export class RegisterComponent implements OnInit {
     if (form.valid) {
       this.loading = true;
       this.auth.newUser(form.value)
-      .subscribe(d => {
-        console.log(d)
-        this.auth.saveToken = d;
-        this.loading = false;
-        this.router.navigate(['/uzsport/profile']);
+      .subscribe({
+        next: (value) => {
+          this.auth.saveToken = value;
+          this.loading = false;
+          this.router.navigate(['/uzsport/profile']);
+        },
+        error: (e) => {
+          console.error(e);
+        },
+        complete: () => {
+          console.log('Complete')
+        }
       });
     }
   }

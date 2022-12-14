@@ -72,9 +72,9 @@ export class LoginComponent implements OnInit {
       if (user.id !== '') {
         this.auth.SaveUser(user.user);
         this.auth.IdUserLogin(user.id);
-        this.router.navigate(['/uzsport/profile']);
+        this.router.navigate(['/uzsport/member']);
       } else {
-        this.router.navigate(['/uzsport/profile']);
+        this.router.navigate(['/uzsport/member']);
       }
     });
   }
