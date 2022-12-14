@@ -24,14 +24,18 @@ import { CardMemberComponent } from './components/card-member/card-member.compon
     CardLeagueComponent,
     CarouselsComponent,
     CountFoulComponent,
-    FormatTimerPipe
+    FormatTimerPipe,
+    CardInfoTorneoComponent,
+    RolDeJuegoComponent,
+    LoadingComponent,
+    CardMemberComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgImageSliderModule
+    NgImageSliderModule,
   ],
   exports: [
     FormComponent,
