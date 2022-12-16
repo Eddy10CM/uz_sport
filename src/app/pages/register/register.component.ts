@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { League } from 'src/app/core/class/league';
+import { AlertsService } from 'src/app/shared/services/alerts.service';
 
 @Component({
   selector: 'app-register',
@@ -30,13 +31,14 @@ export class RegisterComponent implements OnInit {
       value: '',
       type: 'password',
       validation: {
-        required: true
+        required: true,
+        minLength: 8
       }
     }
   };
 
   
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private _alert: AlertsService) { }
 
   ngOnInit(): void {
   }
@@ -52,6 +54,8 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/uzsport/profile']);
         },
         error: (e) => {
+          this._alert.alertSimple(e.error.error.message);
+          this.loading = false
           console.error(e);
         },
         complete: () => {

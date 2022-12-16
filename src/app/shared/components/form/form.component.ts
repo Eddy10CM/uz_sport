@@ -12,6 +12,7 @@ export class FormComponent implements OnChanges {
   hide = true;
   @Input() FormJson: any = null;
   @Input() NameButton: string = '';
+  @Input() titleForm: string = '';
   @Input() reset: boolean = false;
   @Output() DelegateEvent: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   fg!: FormGroup;
@@ -84,6 +85,7 @@ export class FormComponent implements OnChanges {
   }
 
   OnSubmit(Form: FormGroup) {
+    console.log('t')
     this.DelegateEvent.emit(Form);
   }
 
@@ -94,9 +96,13 @@ export class FormComponent implements OnChanges {
   GetErrorMessage(key: string): string {
     let error: string = ''; 
     for (const keyForm in this.form.FormGroup.get(key)!.errors) {
+      console.log("🚀 ~ file: form.component.ts:99 ~ FormComponent ~ GetErrorMessage ~ keyForm", keyForm)
       switch(keyForm) {
         case 'required':
           error = `El campo ${key} es obligatorio`
+          break;
+        case 'minlength':
+          error = `El campo ${key} no cumple con los caracteres minimos`
           break;
         default:
           error = `El campo ${key} tiene el siguiente error ${keyForm}`
@@ -104,5 +110,11 @@ export class FormComponent implements OnChanges {
       }
     }
     return error;
+  }
+
+  hideEvent(event: Event){
+    console.log(event)
+    event.preventDefault();
+    this.hide = !this.hide
   }
 }

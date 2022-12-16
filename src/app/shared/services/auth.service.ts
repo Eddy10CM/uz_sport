@@ -13,6 +13,7 @@ export class AuthService {
 
   private apiKey = 'AIzaSyBoSt5MX460l1HpklUaXh4Ax6r8nw0hLdk';
   userToken!: Login;
+  token!: string;
   IdUser!: string;
   private $isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   // Crear Usuario
@@ -87,5 +88,29 @@ export class AuthService {
     }
 
     return this.userToken;
+  }
+
+  guardartoken(idToken: string) {
+    this.token = idToken;
+    localStorage.setItem('token', idToken);
+    const today = new Date();
+    today.setSeconds(3600);
+    localStorage.setItem('expired', today.getTime().toString());
+  }
+
+  isAuthenticated(): boolean {
+    if (this.token.length < 2) {
+      return false;
+    }
+
+    const expira = Number(localStorage.getItem('expired'));
+    const expiraDate = new Date();
+    expiraDate.setTime(expira);
+
+    if (expiraDate > new Date()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

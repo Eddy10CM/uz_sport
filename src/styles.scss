@@ -10,7 +10,6 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-
 $uz-sports-primary: mat.define-palette(mat.$indigo-palette);
 $uz-sports-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 // The warn palette is optional (defaults to red).
@@ -53,36 +52,44 @@ body {
     margin: 0 12px;
 }
 
+
 /* Carousel */
-app-carousels .carousel{
-    background-color:black
+
+app-carousels .carousel {
+    background-color: black
 }
-app-carousels .size_ctrl{
-    font-size:2rem;
+
+app-carousels .size_ctrl {
+    font-size: 2rem;
     color: #90c43c;
 }
+
 app-carousels .carousel-inner {
     padding: 1em;
-    background-color:black
+    background-color: black
 }
+
 app-carousels .card {
-    background-color:black;
+    background-color: black;
     margin: 0 0.5em;
-    align-items:center;
+    align-items: center;
     /* box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18); */
     border: none;
 }
-app-carousels  .imagePhotoContainer{
+
+app-carousels .imagePhotoContainer {
     width: 12em;
     height: 12em;
     display: inline-block;
-    margin:auto;
-    border-radius:50%;
-    background-color:white
+    margin: auto;
+    border-radius: 50%;
+    background-color: white
 }
-app-carousels .mat-card{
+
+app-carousels .mat-card {
     background-color: transparent!important;
 }
+
 app-carousels .carousel-control-prev,
 app-carousels .carousel-control-next {
     background-color: transparent;
@@ -92,42 +99,272 @@ app-carousels .carousel-control-next {
     top: 50%;
     transform: translateY(-50%);
 }
+
 @media (min-width: 768px) {
     app-carousels .carousel-item {
         margin-right: 0;
         flex: 0 0 19.999999%;
-        
         display: block;
     }
     app-carousels .carousel-inner {
         display: flex;
     }
 }
-app-carousels  .circle-image  img.image{
-    border-radius:50%!important
-   }
-   app-carousels .ng-image-slider{
-    margin:auto 0;
+
+app-carousels .circle-image img.image {
+    border-radius: 50%!important
+}
+
+app-carousels .ng-image-slider {
+    margin: auto 0;
     background-color: black;
     transition: all ease;
-   }
-   app-carousels a {
+}
+
+app-carousels a {
     color: #90c43c!important;
     text-decoration: underline;
 }
+
 app-carousels .card .img-wrapper {
-  max-width: 100%;
-  height: 13em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    max-width: 100%;
+    height: 13em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 app-carousels .card img {
-  max-height: 100%;
+    max-height: 100%;
 }
+
 @media (max-width: 767px) {
     app-carousels .card .img-wrapper {
         height: 17em;
     }
 }
+
+
 /* Carousel */
+
+
+/* Login / Registro */
+
+
+/*//////////////////////////////////////////////////////////////////
+[ login ]*/
+
+.limiter {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    ;
+}
+
+.wrap-login100 {
+    width: 390px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+/*==================================================================
+  [ Form ]*/
+
+.login100-form {
+    width: 100%;
+}
+
+.login100-form-title {
+    font-family: Ubuntu-Bold;
+    font-size: 30px;
+    color: #403866;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+
+/*------------------------------------------------------------------
+  [ Input ]*/
+
+.wrap-input100 {
+    width: 100%;
+    position: relative;
+    background-color: #e6e6e6;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+
+/*---------------------------------------------*/
+
+.input100 {
+    font-family: Ubuntu-Bold;
+    color: #403866;
+    line-height: 1.2;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    background: transparent;
+    height: 62px;
+    padding: 0 20px 0 38px;
+}
+
+
+/*------------------------------------------------------------------
+  [ Focus Input ]*/
+
+.focus-input100 {
+    position: absolute;
+    display: block;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    top: -1px;
+    left: -1px;
+    pointer-events: none;
+    border: 1px solid #827ffe;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: scaleX(1.1) scaleY(1.3);
+    -moz-transform: scaleX(1.1) scaleY(1.3);
+    -ms-transform: scaleX(1.1) scaleY(1.3);
+    -o-transform: scaleX(1.1) scaleY(1.3);
+    transform: scaleX(1.1) scaleY(1.3);
+}
+
+.input100:focus+.focus-input100 {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.eff-focus-selection {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+
+/*==================================================================
+  [ Restyle Checkbox ]*/
+
+.input-checkbox100 {
+    display: none;
+}
+
+.label-checkbox100 {
+    font-family: Ubuntu-Regular;
+    font-size: 16px;
+    color: #999999;
+    line-height: 1.2;
+    display: block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+}
+
+.label-checkbox100::before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    font-size: 13px;
+    color: transparent;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    background: #fff;
+    border: 2px solid #827ffe;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.input-checkbox100:checked+.label-checkbox100::before {
+    color: #827ffe;
+}
+
+
+/*------------------------------------------------------------------
+  [ Button ]*/
+
+.container-login100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.login100-form-btn {
+    font-family: Ubuntu-Bold;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 62px;
+    background-color: #827ffe;
+    border-radius: 3px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.login100-form-btn:hover {
+    background-color: #403866;
+}

@@ -1,41 +1,50 @@
-<form novalidate (ngSubmit)="OnSubmit(form.FormGroup)" [formGroup]="form.FormGroup">
-    <div *ngFor="let prop of form.MetaData">
-        <!--label [attr.for]="prop"> {{prop.label}} </label-->
-        <ng-container [ngSwitch]="prop.type">
-            <!--input *ngSwitchCase="'text'" class="form-control" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" /-->
-            <mat-form-field *ngSwitchCase="'text'" appearance="fill">
-                <mat-label> {{ prop.label }} </mat-label>
-                <input matInput *ngSwitchCase="'text'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
-            </mat-form-field>
+<div class="wrap-login100 p-t-50 p-b-90">
+    <form novalidate class="login100-form validate-form flex-sb flex-w" (ngSubmit)="OnSubmit(form.FormGroup)" [formGroup]="form.FormGroup">
+        <span class="login100-form-title p-b-51">
+            {{titleForm}}
+        </span>
+        <div *ngFor="let prop of form.MetaData">
+            <!--label [attr.for]="prop"> {{prop.label}} </label-->
+            <ng-container [ngSwitch]="prop.type">
+                <!--input *ngSwitchCase="'text'" class="form-control" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" /-->
+                <mat-form-field class="wrap-input100 m-b-16" *ngSwitchCase="'text'" appearance="fill">
+                    <mat-label> {{ prop.label }} </mat-label>
+                    <input matInput *ngSwitchCase="'text'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
+                </mat-form-field>
 
-            <mat-form-field *ngSwitchCase="'password'" appearance="fill">
-                <mat-label> {{ prop.label }} </mat-label>
-                <input [type]="hide ? 'password' : 'text'" matInput *ngSwitchCase="'password'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
+                <mat-form-field class="wrap-input100 m-b-16" *ngSwitchCase="'password'" appearance="fill">
+                    <mat-label> {{ prop.label }} </mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput *ngSwitchCase="'password'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
+                    <button mat-icon-button matSuffix (click)="hideEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
 
-            <div *ngSwitchCase="'radio'">
-                <!--mat-label> {{ prop.label }} </mat-label-->
-                <mat-radio-group [formControlName]="prop.key">
-                    <mat-radio-button *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-radio-button>
-                </mat-radio-group>
+                <div *ngSwitchCase="'radio'">
+                    <!--mat-label> {{ prop.label }} </mat-label-->
+                    <mat-radio-group [formControlName]="prop.key">
+                        <mat-radio-button *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <mat-form-field class="wrap-input100 m-b-16" appearance="fill" *ngSwitchCase="'select'">
+                    <mat-label>Select me</mat-label>
+                    <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>
+                        <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
+                    </mat-select>
+                    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                </mat-form-field>
+            </ng-container>
+            <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
+                <!--p>
+                            {{ form.FormGroup.get(prop.key)!.errors | json }}
+                        </p-->
+                <mat-error> {{ GetErrorMessage(prop.key) }}</mat-error>
             </div>
-            <mat-form-field appearance="fill" *ngSwitchCase="'select'">
-                <mat-label>Select me</mat-label>
-                <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>
-                    <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
-                </mat-select>
-                <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-            </mat-form-field>
-        </ng-container>
-        <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
-            <!--p>
-                        {{ form.FormGroup.get(prop.key)!.errors | json }}
-                    </p-->
-            <mat-error> {{ GetErrorMessage(prop.key) }}</mat-error>
         </div>
-    </div>
-    <button type="submit" mat-raised-button color="primary">{{NameButton}}</button>
-</form>
+        <div class="container-login100-form-btn m-t-17">
+            <button class="login100-form-btn" type="submit" mat-raised-button color="primary">
+                {{NameButton}}
+            </button>
+        </div>
+    </form>
+</div>
