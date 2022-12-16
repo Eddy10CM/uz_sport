@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { Login } from '../../core/class/login';
 import { User } from 'src/app/core/class/users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
   UsuarioLogeado!: User;
   IdUsuario: string = '';
 
-  constructor(private _league: LeagueService, private auth: AuthService, private user: UserService) { }
+  constructor(private _league: LeagueService, private auth: AuthService, private user: UserService, private route: Router) { }
 
   ngOnInit(): void {
     this.LoginUser = this.auth.getToken;
@@ -69,14 +70,17 @@ export class ProfileComponent implements OnInit {
   }
 
   SaveUser(form: FormGroup){
+    console.log("🚀 ~ file: profile.component.ts:72 ~ ProfileComponent ~ SaveUser ~ form", form)
     if (form.valid) {
       let newUser = new User({
         ...form.value
-        ,email: this.LoginUser.email,
+        ,email: this.LoginUser.email
+        ,role: ''
       });
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
+      this.route.navigate(['uzsport/member'])
 
-      this.user.AddUser(newUser)
+      /*this.user.AddUser(newUser)
       .then((d) => {
         console.log("🚀 ~ file: profile.component.ts ~ line 87 ~ ProfileComponent ~ .then ~ d", d)
         this.auth.changeIsLogin(true);
@@ -88,7 +92,7 @@ export class ProfileComponent implements OnInit {
       setTimeout(() => {
         this.resetUser = true;
         this.ShowFormProfile = false;
-      }, 100)
+      }, 100)*/
     }
   }
 }

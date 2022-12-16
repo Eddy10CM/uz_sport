@@ -1,5 +1,5 @@
 <div class="wrap-login100 p-t-50 p-b-90">
-    <form novalidate class="login100-form validate-form flex-sb flex-w" (ngSubmit)="OnSubmit(form.FormGroup)" [formGroup]="form.FormGroup">
+    <form novalidate enctype="multipart/form-data" class="login100-form validate-form flex-sb flex-w" (ngSubmit)="OnSubmit(form.FormGroup)" [formGroup]="form.FormGroup">
         <span class="login100-form-title p-b-51">
             {{titleForm}}
         </span>
@@ -9,8 +9,13 @@
                 <!--input *ngSwitchCase="'text'" class="form-control" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" /-->
                 <mat-form-field class="wrap-input100 m-b-16" *ngSwitchCase="'text'" appearance="fill">
                     <mat-label> {{ prop.label }} </mat-label>
-                    <input matInput *ngSwitchCase="'text'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
+                    <input matInput [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
                 </mat-form-field>
+
+                <div class="wrap-input100 m-b-16" *ngSwitchCase="'file'" appearance="fill">
+                    <mat-label> {{ prop.label }} </mat-label>
+                    <input [formControlName]="prop.key" [id]="prop.key" type="file" accept="image/*" />
+                </div>
 
                 <mat-form-field class="wrap-input100 m-b-16" *ngSwitchCase="'password'" appearance="fill">
                     <mat-label> {{ prop.label }} </mat-label>
@@ -27,11 +32,23 @@
                     </mat-radio-group>
                 </div>
                 <mat-form-field class="wrap-input100 m-b-16" appearance="fill" *ngSwitchCase="'select'">
-                    <mat-label>Select me</mat-label>
+                    <mat-label> {{ prop.label }} </mat-label>
                     <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>
                         <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
                     </mat-select>
-                    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                    <mat-hint align="end">Selecciona una opción</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="wrap-input100 m-b-16" *ngSwitchCase="'date'">
+                    <mat-label> {{ prop.label }}</mat-label>
+                    <input matInput [matDatepicker]="datepicker" [formControlName]="prop.key">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datepicker>
+                        <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
                 </mat-form-field>
             </ng-container>
             <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
