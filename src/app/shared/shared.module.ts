@@ -12,6 +12,8 @@ import { CountFoulComponent } from './components/count-foul/count-foul.component
 import { FormatTimerPipe } from './pipe/format-timer.pipe';
 import { CardInfoTorneoComponent } from './components/card-info-torneo/card-info-torneo.component';
 import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.component';
+import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
+import { LayoutCardsFlexComponent } from './components/layout-cards-flex/layout-cards-flex.component';
 
 
 
@@ -25,6 +27,8 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
     FormatTimerPipe,
     CardInfoTorneoComponent,
     RolDeJuegoComponent,
+    GalleryItemComponent,
+    LayoutCardsFlexComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
     CarouselsComponent,
     CardInfoTorneoComponent,
     RolDeJuegoComponent,
-    GaleryComponent
+    GaleryComponent,
+    GalleryItemComponent,
+    LayoutCardsFlexComponent
   ]
 })
 export class SharedModule { }
