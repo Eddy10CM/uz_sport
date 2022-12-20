@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { MasonryGalleryModule } from 'ngx-masonry-gallery';
 
 import { GaleryComponent } from './components/galery/galery.component';
 import { FormComponent } from './components/form/form.component';
@@ -13,6 +12,8 @@ import { CountFoulComponent } from './components/count-foul/count-foul.component
 import { FormatTimerPipe } from './pipe/format-timer.pipe';
 import { CardInfoTorneoComponent } from './components/card-info-torneo/card-info-torneo.component';
 import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.component';
+import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
+import { LayoutCardsFlexComponent } from './components/layout-cards-flex/layout-cards-flex.component';
 
 
 
@@ -26,14 +27,15 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
     FormatTimerPipe,
     CardInfoTorneoComponent,
     RolDeJuegoComponent,
+    GalleryItemComponent,
+    LayoutCardsFlexComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgImageSliderModule,
-    MasonryGalleryModule
+    NgImageSliderModule
   ],
   exports: [
     FormComponent,
@@ -43,7 +45,9 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
     CarouselsComponent,
     CardInfoTorneoComponent,
     RolDeJuegoComponent,
-    GaleryComponent
+    GaleryComponent,
+    GalleryItemComponent,
+    LayoutCardsFlexComponent
   ]
 })
 export class SharedModule { }
