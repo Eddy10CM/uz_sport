@@ -72,13 +72,16 @@ app-carousels .card {
     /* box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18); */
     border: none;
 }
-app-carousels .card .imagePhotoContainer{
+app-carousels  .imagePhotoContainer{
     width: 12em;
     height: 12em;
     display: inline-block;
     margin:auto;
     border-radius:50%;
     background-color:white
+}
+app-carousels .mat-card{
+    background-color: transparent!important;
 }
 app-carousels .carousel-control-prev,
 app-carousels .carousel-control-next {
@@ -99,6 +102,18 @@ app-carousels .carousel-control-next {
     app-carousels .carousel-inner {
         display: flex;
     }
+}
+app-carousels  .circle-image  img.image{
+    border-radius:50%!important
+   }
+   app-carousels .ng-image-slider{
+    margin:auto 0;
+    background-color: black;
+    transition: all ease;
+   }
+   app-carousels a {
+    color: #90c43c!important;
+    text-decoration: underline;
 }
 app-carousels .card .img-wrapper {
   max-width: 100%;
