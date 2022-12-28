@@ -1,28 +1,43 @@
 <mat-card class="example-card">
     <mat-card-header>
-        <div class="example-header-image" mat-card-avatar [ngStyle]="{'background-image': 'url(' + avatar + ')'}">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="example-header-image imagen" mat-card-avatar [ngStyle]="{'background-image': 'url(' + avatar + ')'}">
+                </div>
+            </div>
+            <div class="col-md-7 titulo">
+                <mat-card-title>{{ League.NameLeague }}</mat-card-title>
+            </div>
         </div>
-        <mat-card-title>{{ League.NameLeague }}</mat-card-title>
-        <mat-card-subtitle> {{ League.Description }} </mat-card-subtitle>
+        
+        
     </mat-card-header>
-
+    <mat-card-header>
+        <mat-card-subtitle> {{ League.Description }} </mat-card-subtitle>
+        
+    </mat-card-header>
     <mat-card-content>
-        <div class="row">
+        <div class="row mb-2">
             <div class="col-6">Rate (by players)</div>
-            <div class="col-6"></div>
+            <div class="col-6 right"><span class="contenedor-estrellas"><i class="bi bi-star-fill estrella"></i><i
+                        class="bi bi-star-fill estrella"></i><i class="bi bi-star-fill estrella"></i><i
+                        class="bi bi-star-half estrella"></i><i class="bi bi-star estrella"></i></span></div>
         </div>
-        <div class="row">
+        <div class="row mb-2">
             <div class="col-6">Fans like</div>
-            <div class="col-6"> {{League.Like}} </div>
+            <div class="col-6 right"> {{League.Like}} <i
+                class="fa fa-thumbs-up" aria-hidden="true"></i>   </div>
         </div>
         <div class="row">
             <div class="col-6">Rate (by players)</div>
-            <div class="col-6"></div>
+            <div class="col-6 right"><button style="float: right;
+                width: auto;margin-left: auto;background-color:#90c43c;color:white;border-radius:5px">Like <i
+                        class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
         </div>
     </mat-card-content>
     <div class="row">
         <div class="col-12 text-center">
-            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"><i class="bi bi-facebook"></i></button>
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"><i class="fa fa-facebook"></i></button>
             <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"><i class="bi bi-instagram"></i></button>
             <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"><i class="bi bi-whatsapp"></i></button>
             <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"><i class="bi bi-envelope"></i></button>

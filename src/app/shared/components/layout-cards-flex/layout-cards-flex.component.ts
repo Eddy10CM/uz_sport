@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+export interface ImagenCardFlex{
+  url:string;
+  titulo:string
+}
 @Component({
   selector: 'app-layout-cards-flex',
   templateUrl: './layout-cards-flex.component.html',
@@ -41,7 +44,28 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class LayoutCardsFlexComponent implements OnInit {
-
+  imagenes:ImagenCardFlex[] = [
+    {
+      url:'assets/img/01.jpg',
+      titulo:'Imagen 1'
+    },
+    {
+      url:'assets/img/02.jpg',
+      titulo:'Imagen 2'
+    },
+    {
+      url:'assets/img/03.jpg',
+      titulo:'Imagen 3'
+    },
+    {
+      url:'assets/img/04.jpg',
+      titulo:'Imagen 4'
+    },
+    {
+      url:'assets/img/05.jpg',
+      titulo:'Imagen 5'
+    }
+  ];
   constructor() { }
 
   ngOnInit(): void {
