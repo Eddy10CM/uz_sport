@@ -36,20 +36,62 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.example-card {
+* .example-card {
     max-width: 400px;
+    background-color: black;
+    color:white;
+    border-radius: 2rem!important
+}
+.example-card *{
+    color:white;
+}
+.example-card .row{
+    width: 100%;
+}
+.example-card mat-card-title{
+    text-align: center;
+    vertical-align: middle;
+    // margin: 1.6em auto;
+    font-size: 2.5em!important;
+    line-height: 100%;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+.example-card mat-card-subtitle{
+    color:#CCC
+}
+.example-card mat-card-content .right{
+    text-align: right;
+}
+.example-card .contenedor-estrellas{
+    float: right;
+    width: auto;
+    color:#90c43c!important;
+    margin-left: auto;
+}
+.example-card .estrella{
+    color:#90c43c!important;
+}
+.example-card .titulo{
+    align-items: center;
+    display: flex;
 }
 
 .mat-form-field+.mat-form-field {
     margin-left: 8px;
 }
 
-.example-header-image {
+* .example-header-image {
     //background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+    width: 8rem !important;
+    height: 8rem !important;
+    /* margin: 0.5em; */
+    /* margin-left: 2em; */
+    margin-bottom: 2em;
+    border: 0.3em solid white;
 }
-
-.example-margin {
+* .example-margin {
     margin: 0 12px;
 }
 

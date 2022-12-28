@@ -14,6 +14,7 @@ import { CardInfoTorneoComponent } from './components/card-info-torneo/card-info
 import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.component';
 import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
 import { LayoutCardsFlexComponent } from './components/layout-cards-flex/layout-cards-flex.component';
+import { CardFlexComponent } from './components/card-flex/card-flex.component';
 
 
 
@@ -28,7 +29,8 @@ import { LayoutCardsFlexComponent } from './components/layout-cards-flex/layout-
     CardInfoTorneoComponent,
     RolDeJuegoComponent,
     GalleryItemComponent,
-    LayoutCardsFlexComponent
+    LayoutCardsFlexComponent,
+    CardFlexComponent
   ],
   imports: [
     CommonModule,

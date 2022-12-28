@@ -4,53 +4,13 @@
         Titulo del Layout
     </h1>
     <div class="contenedor-cards">
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
-        <div class="card">
-            <img [src]="'assets/img/01.jpg'" class="imagen">
-            <h1 class="titulo">Titulo</h1>
-        </div>
+        <app-card-flex *ngFor="let imagen of imagenes" [imagen]="imagen">
+<!-- 
+            <div class="card">
+                <img [src]="'assets/img/01.jpg'" class="imagen">
+                <h1 class="titulo">Titulo</h1>
+            </div> -->
+        </app-card-flex>
+        
     </div>
 </div>
