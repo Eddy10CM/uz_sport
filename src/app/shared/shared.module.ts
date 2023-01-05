@@ -15,6 +15,8 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
 import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
 import { LayoutCardsFlexComponent } from './components/layout-cards-flex/layout-cards-flex.component';
 import { CardFlexComponent } from './components/card-flex/card-flex.component';
+import { StarPercentComponent } from './components/star-percent/star-percent.component';
+import { StarPercentItemComponent } from './components/star-percent-item/star-percent-item.component';
 
 
 
@@ -30,7 +32,9 @@ import { CardFlexComponent } from './components/card-flex/card-flex.component';
     RolDeJuegoComponent,
     GalleryItemComponent,
     LayoutCardsFlexComponent,
-    CardFlexComponent
+    CardFlexComponent,
+    StarPercentComponent,
+    StarPercentItemComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +53,8 @@ import { CardFlexComponent } from './components/card-flex/card-flex.component';
     RolDeJuegoComponent,
     GaleryComponent,
     GalleryItemComponent,
-    LayoutCardsFlexComponent
+    LayoutCardsFlexComponent,
+    StarPercentComponent
   ]
 })
 export class SharedModule { }
