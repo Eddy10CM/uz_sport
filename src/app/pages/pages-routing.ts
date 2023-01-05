@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LeagueComponent } from './league/league.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MemberComponent } from './member/member.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
             {
                 path: 'profile',
                 component: ProfileComponent
+            },
+            {
+                path: 'member',
+                component: MemberComponent
             }
         ]
     }

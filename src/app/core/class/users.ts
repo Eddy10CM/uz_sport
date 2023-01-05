@@ -9,7 +9,8 @@ export class User {
     lastName: string;
     phone: number;
     photoUrl: string;
-    roles: string[];
+    role: string;
+    //roles: string[];
 
     constructor(opt?: {
         address: string;
@@ -21,7 +22,8 @@ export class User {
         lastName: string;
         phone: number;
         photoUrl: string;
-        roles: string[];
+        role: string;
+        //roles: string[];
     }) {
         this.address = opt != undefined ? opt.address : '';
         this.birthday = opt != undefined ? opt.birthday : '';
@@ -32,6 +34,7 @@ export class User {
         this.lastName = opt != undefined ? opt.lastName : '';
         this.phone = opt != undefined ? opt.phone : 0;
         this.photoUrl = opt != undefined ? opt.photoUrl : '';
-        this.roles = opt != undefined ? opt.roles : [];
+        this.role = opt != undefined ? opt.role : '';
+        //this.roles = opt != undefined ? opt.roles : [];
     }
 }

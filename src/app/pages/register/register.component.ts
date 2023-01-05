@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { League } from 'src/app/core/class/league';
+import { AlertsService } from 'src/app/shared/services/alerts.service';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,7 @@ import { League } from 'src/app/core/class/league';
 })
 export class RegisterComponent implements OnInit {
 
+  loading: boolean = false;
 
   JSONRegister: any = {
     email: {
@@ -29,24 +31,36 @@ export class RegisterComponent implements OnInit {
       value: '',
       type: 'password',
       validation: {
-        required: true
+        required: true,
+        minLength: 8
       }
     }
   };
 
   
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private _alert: AlertsService) { }
 
   ngOnInit(): void {
   }
 
   ValidateForm(form: FormGroup) {
     if (form.valid) {
+      this.loading = true;
       this.auth.newUser(form.value)
-      .subscribe(d => {
-        console.log(d)
-        this.auth.saveToken = d;
-        this.router.navigate(['/uzsport/profile']);
+      .subscribe({
+        next: (value) => {
+          this.auth.saveToken = value;
+          this.loading = false;
+          this.router.navigate(['/uzsport/profile']);
+        },
+        error: (e) => {
+          this._alert.alertSimple(e.error.error.message);
+          this.loading = false
+          console.error(e);
+        },
+        complete: () => {
+          console.log('Complete')
+        }
       });
     }
   }

@@ -15,6 +15,8 @@ import { RolDeJuegoComponent } from './components/rol-de-juego/rol-de-juego.comp
 import { GalleryItemComponent } from './components/gallery-item/gallery-item.component';
 import { LayoutCardsFlexComponent } from './components/layout-cards-flex/layout-cards-flex.component';
 import { CardFlexComponent } from './components/card-flex/card-flex.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { CardMemberComponent } from './components/card-member/card-member.component';
 
 
 
@@ -30,14 +32,16 @@ import { CardFlexComponent } from './components/card-flex/card-flex.component';
     RolDeJuegoComponent,
     GalleryItemComponent,
     LayoutCardsFlexComponent,
-    CardFlexComponent
+    CardFlexComponent,
+    LoadingComponent,
+    CardMemberComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgImageSliderModule
+    NgImageSliderModule,
   ],
   exports: [
     FormComponent,
@@ -49,7 +53,9 @@ import { CardFlexComponent } from './components/card-flex/card-flex.component';
     RolDeJuegoComponent,
     GaleryComponent,
     GalleryItemComponent,
-    LayoutCardsFlexComponent
+    LayoutCardsFlexComponent,
+    LoadingComponent,
+    CardMemberComponent
   ]
 })
 export class SharedModule { }

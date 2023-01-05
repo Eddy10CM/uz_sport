@@ -1,5 +1,6 @@
-<div class="row text-center">
-    <div class="col-12">
-        <app-form [FormJson]="JSONRegister" [NameButton]="'Registrar'" (DelegateEvent)="ValidateForm($event)"></app-form>
-    </div>
+<div class="container-login100" *ngIf="!loading; else showLoading">
+    <app-form [titleForm]="'Registro de usuario'" [FormJson]="JSONRegister" [NameButton]="'Registrar'" (DelegateEvent)="ValidateForm($event)"></app-form>
 </div>
+<ng-template #showLoading>
+    <app-loading></app-loading>
+</ng-template>

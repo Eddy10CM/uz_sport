@@ -41,7 +41,7 @@ export const USERFORM = {
     birthday: {
         label: 'Fecha de nacimiento',
         value: '',
-        type: 'text',
+        type: 'date',
         validation: {
             required: true
         }
@@ -65,11 +65,12 @@ export const USERFORM = {
     photoUrl: {
         label: 'Foto',
         value: '',
-        type: 'text',
+        type: 'file',
         validation: {
             required: true
         }
-    },
+    }
+    /*,
     roles: {
         label: '',
         value: '',
@@ -78,5 +79,5 @@ export const USERFORM = {
         validation: {
             required: true
         }
-    }
+    }*/
 } 

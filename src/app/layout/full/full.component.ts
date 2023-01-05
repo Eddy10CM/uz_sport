@@ -52,7 +52,7 @@ export class FullComponent implements OnInit {
   leaguesClass: League[] = []
   usuarioLoged: User = new User();
 
-  constructor(private router: Router, private _LeagueService: LeagueService, public _auth: UserService) { }
+  constructor(private router: Router, private _LeagueService: LeagueService, public _auth: AuthService) { }
   
 
   ngOnInit(): void {
@@ -62,7 +62,11 @@ export class FullComponent implements OnInit {
       console.log("🚀 ~ file: full.component.ts ~ line 21 ~ FullComponent ~ ngOnInit ~ x", x)
       this.leaguesClass = x
     });
-    console.log("🚀 ~ file: full.component.ts ~ line 31 ~ FullComponent ~ ngOnInit ~ this._auth.UserInfo", this._auth.UserInfo)
+
+    this._auth.getInfoUser()
+    .subscribe(data => {
+      console.log("🚀 ~ file: full.component.ts ~ line 54 ~ FullComponent ~ ngOnInit ~ data", data)
+    })
   }
 
   GoLeague(League: League): void {
