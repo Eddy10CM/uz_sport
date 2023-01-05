@@ -75,16 +75,17 @@ export class ProfileComponent implements OnInit {
     if (form.valid) {
       let newUser = new User({
         ...form.value
+        ,birthday : new Date(form.get('birthday')?.value).toISOString().split('T')[0]
         ,email: this.LoginUser.email
         ,role: ''
       });
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
-      //his.route.navigate(['uzsport/member'])
 
-      /*this.user.AddUser(newUser)
+      this.user.AddUser(newUser)
       .then((d) => {
         console.log("🚀 ~ file: profile.component.ts ~ line 87 ~ ProfileComponent ~ .then ~ d", d)
         this.auth.changeIsLogin(true);
+        this.route.navigate(['uzsport/member'])
       })
       .catch((err) => {
         console.log('error', err)
@@ -93,7 +94,7 @@ export class ProfileComponent implements OnInit {
       setTimeout(() => {
         this.resetUser = true;
         this.ShowFormProfile = false;
-      }, 100)*/
+      }, 100)
     }
   }
 }
