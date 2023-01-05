@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         this.auth.IdUserLogin(user.id);
         this.router.navigate(['/uzsport/member']);
       } else {
-        this.router.navigate(['/uzsport/member']);
+        this.router.navigate(['/uzsport/profile']);
       }
     });
   }

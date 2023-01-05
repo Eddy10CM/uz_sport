@@ -70,7 +70,8 @@ export class ProfileComponent implements OnInit {
   }
 
   SaveUser(form: FormGroup){
-    console.log("🚀 ~ file: profile.component.ts:72 ~ ProfileComponent ~ SaveUser ~ form", form)
+    console.log("🚀 ~ file: profile.component.ts:72 ~ ProfileComponent ~ SaveUser ~ form", new Date(form.get('birthday')?.value).toISOString())
+
     if (form.valid) {
       let newUser = new User({
         ...form.value
@@ -78,7 +79,7 @@ export class ProfileComponent implements OnInit {
         ,role: ''
       });
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
-      this.route.navigate(['uzsport/member'])
+      //his.route.navigate(['uzsport/member'])
 
       /*this.user.AddUser(newUser)
       .then((d) => {

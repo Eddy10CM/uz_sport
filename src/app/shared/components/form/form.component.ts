@@ -96,7 +96,6 @@ export class FormComponent implements OnChanges {
   GetErrorMessage(key: string): string {
     let error: string = ''; 
     for (const keyForm in this.form.FormGroup.get(key)!.errors) {
-      console.log("🚀 ~ file: form.component.ts:99 ~ FormComponent ~ GetErrorMessage ~ keyForm", keyForm)
       switch(keyForm) {
         case 'required':
           error = `El campo ${key} es obligatorio`
