@@ -1,10 +1,10 @@
 <mat-toolbar>
     <mat-toolbar-row>
         <div fxLayout="row" fxShow="false" fxShow.gt-sm></div>
-        
-        
+
+
         <div class="flex-spacer">
-            
+
         </div>
         <div fxFlexOffset.gt-md="auto" fxflex="30">
             <div class="example-button-row">
@@ -12,13 +12,13 @@
                     <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
                         <i class="fa fa-facebook" style="font-weight:bolder;font-size:1.5em" aria-hidden="true"></i>
           </button>
-                    <button mat-icon-button  aria-label="Example icon button with a home icon">
+                    <button mat-icon-button aria-label="Example icon button with a home icon">
             <i class="bi bi-instagram icon-social" style="font-weight:bolder;font-size:1.5em"></i>
           </button>
-                    <button mat-icon-button  aria-label="Example icon button with a menu icon">
+                    <button mat-icon-button aria-label="Example icon button with a menu icon">
             <i class="bi bi-whatsapp icon-social" style="font-weight:bolder;font-size:1.5em"></i>
           </button>
-                    <button mat-icon-button  aria-label="Example icon button with a heart icon">
+                    <button mat-icon-button aria-label="Example icon button with a heart icon">
                       <i class="bi bi-envelope icon-social" style="font-weight:bolder;font-size:1.5em"></i>
           </button>
 
@@ -28,7 +28,7 @@
     </mat-toolbar-row>
     <mat-toolbar-row>
 
-        <div fxLayout fxLayoutAlign="center center"  style="font-size:3em;text-align: center;width:100%">
+        <div fxLayout fxLayoutAlign="center center" style="font-size:3em;text-align: center;width:100%">
             <b>UZ</b> SPORT
         </div>
     </mat-toolbar-row>
@@ -36,8 +36,8 @@
         <div class="col-2" routerLink="/uzsport/home">
             <!-- <button mat-icon-button class="icon-social"  aria-label="Example icon button with a home icon" routerLink="/uzsport/home">
         <mat-icon>home</mat-icon> -->
-        <i class="bi bi-house-door-fill square-green" style="font-size: 1.5em"></i>
-    
+            <i class="bi bi-house-door-fill square-green" style="font-size: 1.5em"></i>
+
         </div>
         <div class="col-8" style="text-align: center;">
             <span>
@@ -60,9 +60,9 @@
         </mat-menu>
       </span>
         </div>
-        <div class="col-2" style="text-align: right;" >
+        <div class="col-2" style="text-align: right;">
             <div class="flex-spacer">
-            
+
             </div>
             <button mat-icon-button color="warn" [matMenuTriggerFor]="menu" aria-label="Example icon button with a heart icon">
             <!-- <i class="bi bi-person-circle"></i> -->
@@ -73,10 +73,14 @@
                 <!-- <span class="avatar" style="display:block"></span> -->
             
             </button>
-            
+
             <mat-menu #menu="matMenu">
-                <button mat-menu-item routerLink="/uzsport/login">Login</button>
-                <button mat-menu-item routerLink="/uzsport/register">Registro</button>
+                <button mat-menu-item *ngFor="let m of MenuDynamic" (click)="navigationMenu(m.url)">
+                    {{ m.title }}
+                </button>
+
+
+                <!--button mat-menu-item routerLink="/uzsport/register">Registro</button routerLink="/uzsport/login" -->
             </mat-menu>
         </div>
     </mat-toolbar-row>
