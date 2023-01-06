@@ -78,6 +78,9 @@ export class AuthService {
   set saveToken(idToken: Login) {
     this.userToken = idToken;
     localStorage.setItem('user', JSON.stringify(idToken))
+    const today = new Date();
+    today.setSeconds(3600);
+    localStorage.setItem('expired', today.getTime().toString());
   }
 
   get getToken() {
@@ -99,7 +102,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    if (this.token.length < 2) {
+    if (this.userToken.idToken.length < 2) {
       return false;
     }
 

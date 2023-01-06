@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { LeagueComponent } from './league/league.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MemberComponent } from './member/member.component';
+import { AuthGuard } from "../shared/guards/auth.guard";
 
 
 const routes: Routes = [
@@ -41,11 +42,13 @@ const routes: Routes = [
             },
             {
                 path: 'profile',
-                component: ProfileComponent
+                component: ProfileComponent,
+                canActivate: [AuthGuard]
             },
             {
                 path: 'member',
-                component: MemberComponent
+                component: MemberComponent,
+                canActivate: [AuthGuard]
             }
         ]
     }

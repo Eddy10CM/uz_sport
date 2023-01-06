@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         next: (value: Login) => {
           console.log("🚀 ~ file: login.component.ts:55 ~ LoginComponent ~ ValidateForm ~ value", value)
           this.validateUser(value)
+          this.auth.saveToken = value;
         },
         error: (e) => {
           this._alert.alertSimple('Usuario o contraseña incorrecta');
