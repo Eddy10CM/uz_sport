@@ -22,6 +22,7 @@ export class UserService {
     .snapshotChanges()
     .pipe(
       map((user) => {
+        console.log(user,"user")
         let Id = '';
         user.map((u) => {
           this.UserInfo = u.payload.doc.data() as User;

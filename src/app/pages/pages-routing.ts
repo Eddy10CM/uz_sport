@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { LeagueComponent } from './league/league.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MemberComponent } from './member/member.component';
+import { CoachesComponent } from "./coaches/coaches.component";
 
 
 const routes: Routes = [
@@ -46,7 +47,11 @@ const routes: Routes = [
             {
                 path: 'member',
                 component: MemberComponent
-            }
+            },
+            {
+                path: 'member/couches',
+                component: CoachesComponent
+            },
         ]
     }
 ]

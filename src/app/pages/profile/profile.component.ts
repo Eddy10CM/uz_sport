@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
       //his.route.navigate(['uzsport/member'])
 
-      /*this.user.AddUser(newUser)
+      this.user.AddUser(newUser)
       .then((d) => {
         console.log("🚀 ~ file: profile.component.ts ~ line 87 ~ ProfileComponent ~ .then ~ d", d)
         this.auth.changeIsLogin(true);
@@ -93,7 +93,7 @@ export class ProfileComponent implements OnInit {
       setTimeout(() => {
         this.resetUser = true;
         this.ShowFormProfile = false;
-      }, 100)*/
+      }, 100)
     }
   }
 }

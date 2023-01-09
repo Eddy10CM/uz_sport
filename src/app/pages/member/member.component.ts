@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CardMember } from '../../core/class/card-member';
 
 @Component({
@@ -32,15 +33,16 @@ export class MemberComponent implements OnInit {
   {
     title: 'Coach',
     subtitulo: 'Crear entrenadores',
-    route: '/uzsport/member'
+    route: '/uzsport/member/couches'
   }];
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
   nextPage(route: string) {
+    this.route.navigate([route]);
     console.log("🚀 ~ file: member.component.ts:44 ~ MemberComponent ~ nextPage ~ route", route)
   }
 }

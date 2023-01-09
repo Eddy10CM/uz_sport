@@ -9,9 +9,8 @@
                 <!--input *ngSwitchCase="'text'" class="form-control" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" /-->
                 <mat-form-field class="wrap-input100 m-b-16" *ngSwitchCase="'text'" appearance="fill">
                     <mat-label> {{ prop.label }} </mat-label>
-                    <input matInput [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" />
+                    <input matInput [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" [attr.readonly]="prop.readonly?prop.readonly:false"/>
                 </mat-form-field>
-
                 <div class="wrap-input100 m-b-16" *ngSwitchCase="'file'" appearance="fill">
                     <mat-label> {{ prop.label }} </mat-label>
                     <input [formControlName]="prop.key" [id]="prop.key" type="file" accept="image/*" />

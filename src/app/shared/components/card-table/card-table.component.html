@@ -1,0 +1,23 @@
+<div class="contenedor-tabla">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let header of headers">{{header.text}}</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of body">
+                <td *ngFor="let header of headers">
+                    <ng-container *ngIf="!header.value.includes('action_')">
+                        {{row[header.value]}}
+                    </ng-container>
+                    <ng-container *ngIf="header.value.includes('action_')">
+                        <i class="bi bi-pen-fill editar" *ngIf="header.value.includes('edit')" (click)="editar(row)"></i>
+                        <i class="bi bi-trash3-fill eliminar" *ngIf="header.value.includes('delete')" (click)="eliminar(row)"></i>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

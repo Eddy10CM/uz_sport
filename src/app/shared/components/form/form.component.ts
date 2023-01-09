@@ -85,7 +85,6 @@ export class FormComponent implements OnChanges {
   }
 
   OnSubmit(Form: FormGroup) {
-    console.log('t')
     this.DelegateEvent.emit(Form);
   }
 
