@@ -5,7 +5,7 @@ import { User } from 'src/app/core/class/users';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { LeagueService } from '../../shared/services/league.service';
-import { MENUOFFLINE } from '../../core/constantes/MENU';
+import { MENUOFFLINE, MENULOGED } from '../../core/constantes/MENU';
 import { Menu } from 'src/app/core/class/menu';
 
 @Component({
@@ -70,7 +70,7 @@ export class FullComponent implements OnInit {
     .subscribe(data => {
       console.log("🚀 ~ file: full.component.ts ~ line 54 ~ FullComponent ~ ngOnInit ~ data", data)
       if (data) {
-
+        this.MenuDynamic = MENULOGED
       } else  {
         if (!this.MenuDynamic.find(x => x.title == 'Cerrar Sesión'))
         {
@@ -90,7 +90,7 @@ export class FullComponent implements OnInit {
   navigationMenu(url: string) {
     if (url == '/uzsport/home') {
       localStorage.clear();
-      this.MenuDynamic.pop();
+      this.MenuDynamic = MENUOFFLINE;
     }
     this.router.navigate([url]);
   }

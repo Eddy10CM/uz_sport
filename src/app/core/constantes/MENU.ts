@@ -10,3 +10,14 @@ export const MENUOFFLINE : Menu[] = [
         url: '/uzsport/register'
     }
 ]
+
+export const MENULOGED : Menu[] = [
+    {
+        title: 'Member',
+        url: '/uzsport/member'
+    },
+    {
+        title: 'Cerrar Sesión',
+        url: '/uzsport/home'
+    }
+]

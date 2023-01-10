@@ -73,6 +73,8 @@ export class LoginComponent implements OnInit {
       if (user.id !== '') {
         this.auth.SaveUser(user.user);
         this.auth.IdUserLogin(user.id);
+        this.auth.saveToken = userLogin;
+        this.auth.changeIsLogin(true)
         this.router.navigate(['/uzsport/member']);
       } else {
         this.router.navigate(['/uzsport/profile']);
