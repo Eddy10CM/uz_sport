@@ -1,1 +1,7 @@
-<p>coaches works!</p>
+<app-card-table [headers]="headers" [body]="couches" 
+(DelegateEditar)="Editar($event)"
+(DelegateEliminar)="Eliminar($event)"
+*ngIf="couches.length > 0"></app-card-table>
+<div class="container-form">
+    <app-form [FormJson]="JSONForm" [NameButton]="'Guardar'" [titleForm]="'Couches'" [reset]="resetForm" (DelegateEvent)="Guardar($event)"></app-form>
+</div>

@@ -9,6 +9,7 @@ import { LeagueComponent } from './league/league.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MemberComponent } from './member/member.component';
 import { AuthGuard } from "../shared/guards/auth.guard";
+import { CoachesComponent } from "./coaches/coaches.component";
 
 
 const routes: Routes = [
@@ -49,6 +50,10 @@ const routes: Routes = [
                 path: 'member',
                 component: MemberComponent,
                 canActivate: [AuthGuard]
+            },
+            {
+                path: 'member/couches',
+                component: CoachesComponent
             }
         ]
     }
