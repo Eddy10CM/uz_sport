@@ -48,6 +48,11 @@ export class CouchService {
         return this.firestone.collection<Couch>('Coaches').doc().set(Object.assign({}, newCouch));
     }
     Update(Id: string, updateCouch: Couch) {
+        console.log(Id,
+            updateCouch,'Id,updateCouch')
         return this.firestone.collection<Couch>('Coaches').doc(Id).set(updateCouch, { merge: true })
+    }
+    delete(Id: string) {
+        return this.firestone.collection<Couch>('Coaches').doc(Id).delete()
     }
 }

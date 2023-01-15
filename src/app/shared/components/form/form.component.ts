@@ -22,7 +22,11 @@ export class FormComponent implements OnChanges {
 
 
   constructor(private fb: FormBuilder) { }
+ 
 
+  upload(): void {
+    //get image upload file obj;
+  }
   ngOnChanges(changes: SimpleChanges): void {
     if (this.FormJson == null) return;
     let DataObject = this.FormJson;
