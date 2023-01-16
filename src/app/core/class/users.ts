@@ -10,6 +10,7 @@ export class User {
     phone: number;
     photoUrl: string;
     role: string;
+    password:string;
     //roles: string[];
 
     constructor(opt?: {
@@ -23,6 +24,8 @@ export class User {
         phone: number;
         photoUrl: string;
         role: string;
+        password:string;
+
         //roles: string[];
     }) {
         this.address = opt != undefined ? opt.address : '';
@@ -35,6 +38,7 @@ export class User {
         this.phone = opt != undefined ? opt.phone : 0;
         this.photoUrl = opt != undefined ? opt.photoUrl : '';
         this.role = opt != undefined ? opt.role : '';
+        this.password = opt != undefined ? opt.password : '';
         //this.roles = opt != undefined ? opt.roles : [];
     }
 }

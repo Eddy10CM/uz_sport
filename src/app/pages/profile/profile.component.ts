@@ -77,6 +77,7 @@ export class ProfileComponent implements OnInit {
         ...form.value
         ,email: this.LoginUser.email
         ,role: ''
+        ,password:''
       });
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
       //his.route.navigate(['uzsport/member'])

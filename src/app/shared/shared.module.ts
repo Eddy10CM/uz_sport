@@ -18,6 +18,7 @@ import { CardFlexComponent } from './components/card-flex/card-flex.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { CardTableComponent } from './components/card-table/card-table.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 
 
@@ -36,7 +37,8 @@ import { CardTableComponent } from './components/card-table/card-table.component
     CardFlexComponent,
     LoadingComponent,
     CardMemberComponent,
-    CardTableComponent
+    CardTableComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ import { CardTableComponent } from './components/card-table/card-table.component
     LayoutCardsFlexComponent,
     LoadingComponent,
     CardMemberComponent,
-    CardTableComponent
+    CardTableComponent,
+    CalendarComponent
   ]
 })
 export class SharedModule { }

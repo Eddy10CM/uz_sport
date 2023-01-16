@@ -15,6 +15,7 @@ export class AuthService {
   userToken!: Login;
   token!: string;
   IdUser!: string;
+  
   private $isLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   // Crear Usuario
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
