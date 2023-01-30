@@ -22,6 +22,7 @@
                     <mat-radio-button *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-radio-button>
                 </mat-radio-group>
             </div>
+            
             <mat-form-field appearance="fill" *ngSwitchCase="'select'">
                 <mat-label>Select me</mat-label>
                 <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>

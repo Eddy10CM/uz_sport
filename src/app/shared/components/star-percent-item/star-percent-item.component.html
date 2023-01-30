@@ -1,1 +1,4 @@
-<i class="bi bi-star estrella" *ngFor="let star of stars"></i>
+<!-- <i class="bi bi-star estrella" *ngFor="let star of stars"></i> -->
+<img src="/assets/img/889340.svg" class="balon" (click)="ratingClick(star)" *ngFor="let star of stars;let i = index" 
+[ngClass]="{'hoverbalon': star<=rate-1 || fills[star]}"
+>

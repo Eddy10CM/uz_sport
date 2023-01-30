@@ -5,17 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './star-percent.component.html',
   styles:[
     
-    `
-    ngb-rating {
-      color: #FFC107;
-      font-size: 80px;
-    }
-    `
+
 
   ]
 })
 export class StarPercentComponent implements OnInit {
-  starRating:number=5
+  starRating:number=0
   constructor() { }
 
   ngOnInit(): void {
