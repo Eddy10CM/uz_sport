@@ -19,6 +19,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { CardMemberComponent } from './components/card-member/card-member.component';
 import { CardTableComponent } from './components/card-table/card-table.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { RatingCustomComponent } from './components/rating-custom/rating-custom.component';
+import { RatingItemCustomComponent } from './components/rating-item-custom/rating-item-custom.component';
 
 
 
@@ -38,7 +40,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     LoadingComponent,
     CardMemberComponent,
     CardTableComponent,
-    CalendarComponent
+    CalendarComponent,
+    RatingCustomComponent,
+    RatingItemCustomComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     LoadingComponent,
     CardMemberComponent,
     CardTableComponent,
-    CalendarComponent
+    CalendarComponent,
+    RatingCustomComponent
   ]
 })
 export class SharedModule { }

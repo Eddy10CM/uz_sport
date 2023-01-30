@@ -1,0 +1,3 @@
+<img src="/assets/img/889340.svg" class="balon" (click)="ratingClick(rateItem)" *ngFor="let rateItem of rates;let i = index" 
+[ngClass]="{'hoverbalon': rateItem<=rate-1 || fills[rateItem]}"
+>
