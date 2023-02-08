@@ -1,7 +1,11 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
+import * as moment from 'moment';
 import { Form } from 'src/app/core/interfaces/form';
-
+export interface VisibleObject{
+  key:string;
+  value:boolean;
+}
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -18,11 +22,37 @@ export class FormComponent implements OnChanges {
   fg!: FormGroup;
   Forms: Form[] = [];
   form!: Form;
-
-
+  key:string=""
+  visibles:VisibleObject[]=[];
+  today:string=moment().format('YYYY-MM-DD')
 
   constructor(private fb: FormBuilder) { }
+  assignVisible(inputName:string):boolean{
+    if(this.visibles.find(visible=>visible.key==inputName)===undefined) this.visibles.push({key:inputName,value:false});
+    return this.visibles.find(visible=>visible.key==inputName)?.value || false;
+  }
+  change(prop:any){
+    this.key=prop.key;
+  }
+  cambiarFecha(fecha:string){
+    this.form.MetaData.find(f=>f.key==this.key).value = fecha;
+    this.form.FormGroup.controls[this.key].setValue(fecha);
+    console.log(this.form.MetaData,"this.form.MetaData");
+  }
+  abrirCalendar(inputName:string){
+    this.visibles.map(visible=>{
+      if(visible.key==inputName){
+        visible.value = !visible.value;
+      }
+      return visible;
+    });
+    return this.visibles.find(visible=>visible.key==inputName)?.value || false;
 
+  }
+
+  upload(): void {
+    //get image upload file obj;
+  }
   ngOnChanges(changes: SimpleChanges): void {
     if (this.FormJson == null) return;
     let DataObject = this.FormJson;
@@ -92,18 +122,18 @@ export class FormComponent implements OnChanges {
     this.form.FormGroup.reset();
   }
 
-  GetErrorMessage(key: string): string {
+  GetErrorMessage(key: string,label:string): string {
     let error: string = ''; 
     for (const keyForm in this.form.FormGroup.get(key)!.errors) {
       switch(keyForm) {
         case 'required':
-          error = `El campo ${key} es obligatorio`
+          error = `El campo ${label} es obligatorio`
           break;
         case 'minlength':
-          error = `El campo ${key} no cumple con los caracteres minimos`
+          error = `El campo ${label} no cumple con los caracteres minimos`
           break;
         default:
-          error = `El campo ${key} tiene el siguiente error ${keyForm}`
+          error = `El campo ${label} tiene el siguiente error ${keyForm}`
           break;
       }
     }

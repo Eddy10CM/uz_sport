@@ -78,6 +78,7 @@ export class ProfileComponent implements OnInit {
         ,birthday : new Date(form.get('birthday')?.value).toISOString().split('T')[0]
         ,email: this.LoginUser.email
         ,role: ''
+        ,password:''
       });
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
 

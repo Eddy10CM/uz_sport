@@ -11,10 +11,10 @@ import { CouchService } from '../../shared/services/couch.service';
   ]
 })
 export class CoachesComponent implements OnInit {
-  JSONForm = jsonForm;
+  JSONForm = {...jsonForm};
   resetForm: boolean = false;
   nuevoCouch!: Couch;
-  couches!: Couch[];
+  couches: Couch[]=[];
   Id: string = "";
   headers: Header[] = [
     {
@@ -50,15 +50,18 @@ export class CoachesComponent implements OnInit {
   Guardar(form: FormGroup) {
     if (form.valid) {
       this.nuevoCouch = form.value;
+      console.log("this.Id",this.Id);
       if (this.Id != "") {
-        this.Id="";
         //update
-        console.log("update",this.Id);
         this.resetForm = true;
         this._couch.Update(this.Id, this.nuevoCouch).then(newCouchResponse => {
+          this.Id="";
+          this.JSONForm = {...jsonForm};
+        
+          this.resetForm = true;
           setTimeout(() => {
+            // this.resetForm = false;
             console.log("🚀 ~ file: profile.component.ts ~ line 55 ~ ProfileComponent ~ SaveLeague ~ d", newCouchResponse)
-            this.resetForm = false;
             // setTimeout(() => {
             //   this.nuevoCouch.Name='Nuevo Nombre';
             //   console.log(this.nuevoCouch);
@@ -103,16 +106,19 @@ export class CoachesComponent implements OnInit {
     this.JSONForm['Name'].value = couch.Name;
     this.JSONForm['Experiencia'].value = couch.Experiencia.toString();
     this.JSONForm['Specialty'].value = couch.Specialty;
-    this.JSONForm['ProfilePic'].value = couch.ProfilePic;
-    this.JSONForm['Contact'].value = couch.Contact;
+  ;
+    // this.JSONForm['ProfilePic'].value = couch.ProfilePic;
+    this.JSONForm['Contact'].value = couch.Contact || '';
     let json = JSON.parse(JSON.stringify(this.JSONForm));
+    delete json.ProfilePic;
     this.JSONForm=Object.assign({});
     setTimeout(() => {
       this.JSONForm=json;
-      console.log(couch, "Editar Couch");
+      console.log(this.JSONForm, "this.JSONForm");
     }, 400);
   }
   Eliminar(couch: Couch) {
     console.log(couch, "Eliminar Couch");
+    if(couch.Id) this._couch.delete(couch.Id);
   }
 }
