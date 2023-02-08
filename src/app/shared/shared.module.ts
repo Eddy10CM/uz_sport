@@ -24,6 +24,7 @@ import { RatingItemCustomComponent } from './components/rating-item-custom/ratin
 
 
 
+
 @NgModule({
   declarations: [
     GaleryComponent,
@@ -42,7 +43,7 @@ import { RatingItemCustomComponent } from './components/rating-item-custom/ratin
     CardTableComponent,
     CalendarComponent,
     RatingCustomComponent,
-    RatingItemCustomComponent
+    RatingItemCustomComponent,
   ],
   imports: [
     CommonModule,
@@ -66,7 +67,7 @@ import { RatingItemCustomComponent } from './components/rating-item-custom/ratin
     CardMemberComponent,
     CardTableComponent,
     CalendarComponent,
-    RatingCustomComponent
+    RatingCustomComponent,
   ]
 })
 export class SharedModule { }

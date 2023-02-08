@@ -45,8 +45,15 @@ export class CalendarComponent implements OnInit {
     "Sa",
     "Do"
   ];
+  anios:number[]=[]
+  mesesV:string[]=[]
+  anioIndice:number=moment().year()
+  indice!:moment.Moment
   diaseleccionado:string="";
   constructor() { }
+  tresAnios(pivote:string){
+    console.log(pivote)
+  }
   ngOnInit(): void {
     this.mes= this.meses[Number(this.dia.format("M"))-1];
     this.anio=this.dia.format("YYYY");
@@ -83,6 +90,50 @@ export class CalendarComponent implements OnInit {
     });
     this.diaseleccionado=dia.fecha;
   }
+
+  seleccionarAnioV2(anio:number | string){
+    this.anio=anio.toString()
+    this.anios=[]
+    this.nombresdiasmin=[
+      "Lu",
+      "Ma",
+      "Mi",
+      "Ju",
+      "Vi",
+      "Sa",
+      "Do"
+    ]
+    this.cambiarMes(moment(anio,"YYYY"));
+
+  } 
+  seleccionarMesV2(mes:string){
+    this.mesesV=[]
+    this.anios=[]
+    this.dias=[];
+    this.nombresdiasmin=[]
+    this.mesesV=[...this.meses]
+    console.log(mes,this.anioIndice)
+  } 
+  seleccionarAnio(anio:number | string){
+    this.anios=[]
+    this.dias=[];
+    this.nombresdiasmin=[]
+    this.indice = moment(this.anioIndice,"YYYY").subtract(4,"years");
+    while(this.indice.isSameOrBefore(moment(this.anioIndice,"YYYY").add(4,"years"))){
+      console.log(this.indice.year());
+      this.anios.push(this.indice.year())
+      this.indice.add(1,"year")
+    }
+    console.log(anio,this.anioIndice)
+  } 
+  seleccionarMes(mes:string){
+    this.mesesV=[]
+    this.anios=[]
+    this.dias=[];
+    this.nombresdiasmin=[]
+    this.mesesV=[...this.meses]
+    console.log(mes,this.anioIndice)
+  } 
   ok(){
     this.visible=false;
     this.DelegateFecha.emit(this.diaseleccionado);

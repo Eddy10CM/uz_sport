@@ -89,6 +89,13 @@
                     <label class="did-floating-label"><i class='fa fa-calendar' aria-hidden='true'></i>&nbsp;{{ prop.label }}</label>
                     <app-calendar (blur)="abrirCalendar(prop.key)" [visible]="assignVisible(prop.key)" (DelegateFecha)="change(prop);cambiarFecha($event);"></app-calendar>
                   </div>
+                  <mat-form-field class="wrap-input100 m-b-16" appearance="fill" *ngSwitchCase="'select'">
+                    <mat-label> {{ prop.label }} </mat-label>
+                    <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>
+                        <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
+                    </mat-select>
+                    <mat-hint align="end">Selecciona una opción</mat-hint>
+                </mat-form-field>
                 <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
                     <mat-error> {{ GetErrorMessage(prop.key,prop.label) }}</mat-error>
                 </div>                

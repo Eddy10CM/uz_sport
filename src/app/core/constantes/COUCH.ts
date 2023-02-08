@@ -9,6 +9,15 @@ export const jsonForm = {
           maxLength: 10*/
         }
     },
+    roles: {
+        label: '',
+        value: '',
+        type: 'select',
+        values: ['Jugador', 'Arbitro', 'Couch'],
+        validation: {
+            required: true
+        }
+    },
     Experiencia: {
         label: 'Experiencia',
         value: '',

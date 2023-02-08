@@ -5,61 +5,35 @@
             <li class="prev" (click)="unMes('atras')">&#10094;</li>
             <li class="next" (click)="unMes('adelante')">&#10095;</li>
             <li>
-                {{mes}}<br>
-                <span style="font-size:18px">{{anio}}</span>
+                <span>{{mes}}</span> 
+                <br>
+                <span style="font-size:18px" (click)="seleccionarAnio(anio)">{{anio}}</span>
             </li>
         </ul>
     </div>
     
-    <ul class="weekdays">
+    <ul class="weekdays" *ngIf="nombresdiasmin.length>0">
         <li *ngFor="let dia of nombresdiasmin">{{dia}}</li>
     </ul>
     
     <ul class="days" *ngIf="dias.length>0">
-        <!-- <ng-container *ngFor="let dia of dias" [ngSwitch]="dia.fecha">
-            <li *ngSwitchCase="esHoy(dia.fecha)">
-                <span class="active" *ngIf="esHoy(dia.fecha)">{{dia.text}}</span> 
-                <span class="select" *ngIf="dia.select">{{dia.text}}</span> 
-                <span *ngIf="!dia.select">{{dia.text}}</span>               
-            </li>
-        </ng-container> -->
         <li *ngFor="let dia of dias" (click)="cambiarDia(dia)">
             <span class="active" *ngIf="esHoy(dia.fecha)">{{dia.text}}</span> 
             <span class="select" *ngIf="dia.select">{{dia.text}}</span> 
             <span *ngIf="!dia.select && !esHoy(dia.fecha)">{{dia.text}}</span> 
         </li>
-       <!--  <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li><span class="active">10</span></li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li> -->
     </ul>
+    <div class="anios" *ngIf="anios.length>0">
+        <span *ngFor="let anio of anios;let i=index" (click)="seleccionarAnioV2(anio)">
+            {{anio}}
+          
+            
+            <!-- <span class="active" *ngIf="esHoy(dia.fecha)">{{dia.text}}</span> 
+            <span class="select" *ngIf="dia.select">{{dia.text}}</span> 
+            <span *ngIf="!dia.select && !esHoy(dia.fecha)">{{dia.text}}</span>  -->
+        </span>
+    </div>
+
     <button class="btn btn-danger button-calendar" (click)="cancel()" (blur)="ok()">CANCEL</button>
     <button class="btn btn-primary button-calendar" (click)="ok()" (blur)="ok()">OK</button>
 </ng-container>
