@@ -23,7 +23,7 @@ export class MemberComponent implements OnInit {
   {
     title: 'Player',
     subtitulo: 'Crear jugadores',
-    route: '/uzsport/member'
+    route: '/uzsport/player'
   },
   {
     title: 'Referee',
