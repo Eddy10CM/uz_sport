@@ -18,7 +18,7 @@ export class MemberComponent implements OnInit {
   {
     title: 'Team',
     subtitulo: 'Crear equipos',
-    route: '/uzsport/member'
+    route: '/uzsport/team'
   },
   {
     title: 'Player',

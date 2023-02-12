@@ -1,13 +1,21 @@
-export const PLAYERFORM = {
+export const TEAMFORM = {
     name: {
-        label: 'Nombre',
+        label: 'Nombre equipo',
         value: '',
         type: 'text',
         validation: {
           required: true,
         }
     },
-    photoUrl: {
+    teamLogo: {
+        label: 'Logo equipo',
+        value: '',
+        type: 'file',
+        validation: {
+            required: false
+        }
+    },
+    photoTeam: {
         label: 'Foto',
         value: '',
         type: 'file',
@@ -15,37 +23,29 @@ export const PLAYERFORM = {
             required: false
         }
     },
+    category: {
+        label: 'Categoria',
+        value: '',
+        type: 'select',
+        values: ['Infantil', 'Femenil', 'Varonil', 'Mixto'],
+        validation: {
+            required: true
+        }
+    },
     birthday: {
         label: 'Cumpleaños',
         value: '',
         type: 'date',
         validation: {
-            required: false 
+            required: false
         }
     },
-    address: {
-        label: 'Direccion',
-        value: '',
-        type: 'text',
-        validation: {
-            required: true
-        }
-    },
-    position: {
-        label: 'Posicion',
-        value: '',
-        type: 'select',
-        values: ['Base', 'Escolta', 'Alero', 'Ala', 'Pivot'],
-        validation: {
-            required: true
-        }
-    },
-    email: {
-        label: 'correo',
+    city: {
+        label: 'Ciudad',
         value: '',
         type: 'text',
         validation: {
             required: true
         }
     }
-} 
+}

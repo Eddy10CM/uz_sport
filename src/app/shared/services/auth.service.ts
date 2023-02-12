@@ -13,6 +13,7 @@ export class AuthService {
 
   private apiKey = 'AIzaSyBoSt5MX460l1HpklUaXh4Ax6r8nw0hLdk';
   userToken!: Login;
+  idToken!: string;
   token!: string;
   IdUser!: string;
   
@@ -33,7 +34,12 @@ export class AuthService {
       returnSecureToken: true
     }
 
-    return this.http.post<Login>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`, dataUser);
+    return this.http.post<Login>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`, dataUser).pipe(
+      map((resp: Login) => {
+        this.saveToken = resp;
+        return resp;
+      })
+    );
   }
 
   newUser(user: UsuarioModel) {
@@ -82,6 +88,7 @@ export class AuthService {
     const today = new Date();
     today.setSeconds(3600);
     localStorage.setItem('expired', today.getTime().toString());
+    this.guardartoken(idToken.idToken);
   }
 
   get getToken() {
@@ -103,6 +110,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
+    this.getToken;
     if (this.userToken.idToken.length < 2) {
       return false;
     }

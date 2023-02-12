@@ -11,6 +11,8 @@ import { MemberComponent } from './member/member.component';
 import { AuthGuard } from "../shared/guards/auth.guard";
 import { CoachesComponent } from "./coaches/coaches.component";
 import { PlayersComponent } from './players/players.component';
+import { TeamsComponent } from "./teams/teams.component";
+import { AdminLeagueComponent } from './admin-league/admin-league.component';
 
 
 const routes: Routes = [
@@ -59,7 +61,17 @@ const routes: Routes = [
             },
             {
                 path: 'member/couches',
-                component: CoachesComponent
+                component: CoachesComponent 
+            },
+            {
+                path: 'team',
+                component: TeamsComponent,
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'adminLeague',
+                component: AdminLeagueComponent,
+                canActivate: [AuthGuard]
             }
         ]
     }

@@ -2,12 +2,12 @@
 <!--label [attr.for]="prop"> {{prop.label}} </label-->
 <!--input *ngSwitchCase="'text'" class="form-control" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" /-->
 <div class="wrap-login100 p-t-50 p-b-90 form">
-    <form novalidate enctype="multipart/form-data"  (ngSubmit)="OnSubmit(form.FormGroup)" [formGroup]="form.FormGroup">
+    <form novalidate enctype="multipart/form-data" (ngSubmit)="OnSubmit(form.FormGroup)" [formGroup]="form.FormGroup">
         <span class="login100-form-title p-b-51">
             {{titleForm}}
         </span>
         <ng-container *ngFor="let prop of form.MetaData">
-           <!--  <ng-container [ngSwitch]="prop.type">
+            <!--  <ng-container [ngSwitch]="prop.type">
                 <mat-form-field class="wrap-input100 m-b-16" *ngSwitchCase="'text'" appearance="fill">
                     <mat-label> {{ prop.label }} </mat-label>
                     <input matInput [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" [attr.readonly]="prop.readonly?prop.readonly:false"/>
@@ -60,22 +60,22 @@
             <!-- <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
                 <mat-error> {{ GetErrorMessage(prop.key) }}</mat-error>
             </div><i class="fa fa-check valido" aria-hidden="true"></i><i class="fa fa-times invalido" aria-hidden="true"></i> -->
-        <!-- </ng-container> -->
-        <!-- <ng-container [ngSwitch]="prop.type"> -->
+            <!-- </ng-container> -->
+            <!-- <ng-container [ngSwitch]="prop.type"> -->
 
-            <div class="container-form"  [ngSwitch]="prop.type">
+            <div class="container-form" [ngSwitch]="prop.type">
                 <div class="did-floating-label-content" *ngSwitchCase="'text'">
-                  <input class="did-floating-input"  [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" autocomplete="off">
-                  <label class="did-floating-label">{{ prop.label }}</label>
+                    <input class="did-floating-input" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" autocomplete="off">
+                    <label class="did-floating-label">{{ prop.label }}</label>
                 </div>
                 <div class="did-floating-label-content" *ngSwitchCase="'password'">
-                    <input class="did-floating-input"  [type]="hide ? 'password' : 'text'"   [formControlName]="prop.key" [id]="prop.key" [type]="prop.type">
+                    <input class="did-floating-input" [type]="hide ? 'password' : 'text'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type">
                     <label class="did-floating-label">{{ prop.label }}</label>
                 </div>
                 <div class="did-floating-label-content" *ngSwitchCase="'radio'">
                     <label class="label-radiob">{{ prop.label }}</label>
                     <mat-button-toggle-group [formControlName]="prop.key" aria-label="Font Style">
-                        <ng-container  *ngFor="let value of prop.values;let i = index">
+                        <ng-container *ngFor="let value of prop.values;let i = index">
                             <mat-button-toggle [value]="value" class="custom-bottom">{{value}}</mat-button-toggle>
                         </ng-container>
                     </mat-button-toggle-group>
@@ -84,15 +84,22 @@
                     <mat-label> {{ prop.label }} </mat-label>
                     <input [formControlName]="prop.key" [id]="prop.key" type="file" accept="image/*" />
                 </div>
-                <div class="did-floating-label-content"  *ngSwitchCase="'date'">
-                    <input class="did-floating-input" (click)="abrirCalendar(prop.key)"   [formControlName]="prop.key" [id]="prop.key" [type]="'text'" autocomplete="off">
+                <div class="did-floating-label-content" *ngSwitchCase="'date'">
+                    <input class="did-floating-input" (click)="abrirCalendar(prop.key)" [formControlName]="prop.key" [id]="prop.key" [type]="'text'" autocomplete="off">
                     <label class="did-floating-label"><i class='fa fa-calendar' aria-hidden='true'></i>&nbsp;{{ prop.label }}</label>
                     <app-calendar (blur)="abrirCalendar(prop.key)" [visible]="assignVisible(prop.key)" (DelegateFecha)="change(prop);cambiarFecha($event);"></app-calendar>
-                  </div>
+                </div>
+                <mat-form-field class="wrap-input100 m-b-16" appearance="fill" *ngSwitchCase="'select'">
+                    <mat-label> {{ prop.label }} </mat-label>
+                    <mat-select [formControlName]="prop.key" [id]="prop.key">
+                        <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
+                    </mat-select>
+                    <mat-hint align="end">Selecciona una opción</mat-hint>
+                </mat-form-field>
                 <div *ngIf="(form.FormGroup.get(prop.key)!.dirty || form.FormGroup.get(prop.key)!.touched) && form.FormGroup.get(prop.key)!.invalid">
                     <mat-error> {{ GetErrorMessage(prop.key,prop.label) }}</mat-error>
-                </div>                
-            </div> 
+                </div>
+            </div>
         </ng-container>
         <div class="container-login100-form-btn m-t-17">
             <button class="login100-form-btn" type="submit" mat-raised-button color="primary">
