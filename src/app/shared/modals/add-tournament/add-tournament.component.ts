@@ -29,8 +29,10 @@ export class AddTournamentComponent {
         ...form.value
         ,IdLeague: this.data
       }
+      console.log("🚀 ~ file: add-tournament.component.ts:29 ~ AddTournamentComponent ~ ValidateForm ~ newTournament", newTournament)
       this._tournametService.AddTournament(newTournament)
       .then(d => this.dialogRef.close())
+      .catch((error) => console.log(error))
     }
   }
 }

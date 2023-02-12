@@ -18,6 +18,7 @@ export class TournamentService {
     return this.firestore.collection<Tournament>('Tournament', ref => ref.where('IdLeague', '==', idLeague)).snapshotChanges()
     .pipe(
       map((tournament) => {
+        this.Tournaments = []
         tournament.map((t) => {
           const data = t.payload.doc.data() as Tournament;
           data.Id = t.payload.doc.id;

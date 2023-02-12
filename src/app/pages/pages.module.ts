@@ -18,6 +18,7 @@ import { CoachesComponent } from './coaches/coaches.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MemberComponent } from './member/member.component';
 import { AdminLeagueComponent } from './admin-league/admin-league.component';
+import { AdminTeamComponent } from './admin-team/admin-team.component';
 
 
 
@@ -36,7 +37,8 @@ import { AdminLeagueComponent } from './admin-league/admin-league.component';
     CoachesComponent,
     ProfileComponent,
     MemberComponent,
-    AdminLeagueComponent
+    AdminLeagueComponent,
+    AdminTeamComponent
   ],
   imports: [
     CommonModule,

@@ -11,9 +11,9 @@
     </mat-tab>
 </mat-tab-group-->
 
-<div class="container-login100">
+<div class="container-login100" *ngIf="!loading; else showLoading">
     <app-form [FormJson]="JSONUser" [NameButton]="'Guardar'" [reset]="resetUser" (DelegateEvent)="SaveUser($event)"></app-form>
 </div>
-<!--ng-template #showLoading>
+<ng-template #showLoading>
     <app-loading></app-loading>
-</ng-template-->
+</ng-template>

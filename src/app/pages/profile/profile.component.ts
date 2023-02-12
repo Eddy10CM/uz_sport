@@ -31,6 +31,7 @@ export class ProfileComponent implements OnInit {
   IdUsuario: string = '';
 
   rolUser: number = 0;
+  loading: boolean = false;
 
   constructor(private _league: LeagueService, private auth: AuthService, private user: UserService, private route: Router, private routerActive: ActivatedRoute) {
     this.routerActive.params.subscribe((params: Params) => {
@@ -113,7 +114,7 @@ export class ProfileComponent implements OnInit {
         pague = 'adminLeague';
         break;
       case 2:
-        pague = 'adminLeague';
+        pague = 'adminTeam';
         break;
       case 3:
         pague = 'adminLeague';

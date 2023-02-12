@@ -1,0 +1,30 @@
+<mat-tab-group>
+
+    <mat-tab label="Mis Equipos">
+
+        <mat-list>
+            <mat-list-item *ngFor="let team of MyTeams">
+
+                <div class="col-6">{{team}}</div>
+                <div class="col-6"> <button mat-raised-button color="primary" (click)="RegistarEnTorneo(team)">Registrar en un torneo</button></div>
+
+            </mat-list-item>
+        </mat-list>
+
+    </mat-tab>
+
+    <mat-tab label="Crear Equipo">
+
+        <div class="container-login100">
+            <app-form [titleForm]="'Crear Liga'" [FormJson]="JSONTeam" [reset]="resetTeam" [NameButton]="'Registrar'" (DelegateEvent)="ValidateForm($event)"></app-form>
+        </div>
+        <!--ng-template #showLoading>
+            <app-loading></app-loading>
+        </ng-template-->
+
+    </mat-tab>
+
+
+
+
+</mat-tab-group>

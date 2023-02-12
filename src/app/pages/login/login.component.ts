@@ -75,10 +75,41 @@ export class LoginComponent implements OnInit {
         this.auth.IdUserLogin(user.id);
         this.auth.saveToken = userLogin;
         this.auth.changeIsLogin(true)
-        this.router.navigate(['/uzsport/member']);
+        //this.router.navigate(['/uzsport/member']);
+        this.nextPague(user.user.role);
       } else {
         this.router.navigate(['/uzsport/profile']);
       }
     });
+  }
+
+  nextPague(rolUser: number): void {
+    var pague: string;
+    switch (rolUser) {
+      case 1:
+        pague = 'adminLeague';
+        break;
+      case 2:
+        pague = 'adminTeam';
+        break;
+      case 3:
+        pague = 'adminLeague';
+        break;
+      case 4:
+        pague = 'adminLeague';
+        break;
+      case 5:
+        pague = 'adminLeague';
+        break;
+      default:
+        pague = 'adminLeague';
+        break;
+    }
+
+    this.navigate(pague);
+  }
+
+  navigate(pague: string): void {
+    this.router.navigate([`uzsport/${pague}`]);
   }
 }

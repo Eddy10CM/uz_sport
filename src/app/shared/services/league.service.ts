@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
 import { League } from '../../core/class/league';
+import { Tournament } from '../../core/class/tournament';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,9 @@ export class LeagueService {
   }
 
   GetLeague(NameLeague: string) {
-    let LeagueLocal: League;
+    var LeagueLocal: League;
+    var tournaments: Tournament[] = []
+ 
     return this.firestore.collection<League>('Leagues', ref => ref.where('NameLeague', '==', NameLeague)).snapshotChanges()
     .pipe(
       map((data) => {
@@ -53,19 +56,6 @@ export class LeagueService {
   }
 
   GetMyLeagues(IdUser: string) {
-    let LeagueLocal: League;
-    /*return this.firestore.collection<League>('Leagues', ref => ref.where('IdUsuario', '==', IdUser)).snapshotChanges()
-    .pipe(
-      map((data) => {
-        console.log("🚀 ~ file: league.service.ts:60 ~ LeagueService ~ map ~ data", data)
-        data.map((league) => {
-          LeagueLocal = league.payload.doc.data() as League;
-          LeagueLocal.Id = league.payload.doc.id;
-        })
-        return LeagueLocal;
-      })
-    );*/
-
     return this.firestore.collection<League>('Leagues', ref => ref.where('IdUsuario', '==', IdUser)).snapshotChanges()
     .pipe(
       map((league) => {
@@ -78,7 +68,6 @@ export class LeagueService {
         return this.MyLeagues;
       })
     );
-    //collection('Login', ref => ref.where('username', '==', 'up.ulises.o@gmail.com')).valueChanges();
   }
 
 }

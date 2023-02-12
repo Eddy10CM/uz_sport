@@ -7,6 +7,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { LeagueService } from '../../shared/services/league.service';
 import { MENUOFFLINE, MENULOGED } from '../../core/constantes/MENU';
 import { Menu } from 'src/app/core/class/menu';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-full',
@@ -64,6 +65,7 @@ export class FullComponent implements OnInit {
       this.leaguesClass = [];
       this.leaguesClass = x
     });
+
 
     this._auth.getInfoUser()
     .subscribe(data => {

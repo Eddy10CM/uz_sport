@@ -1,3 +1,4 @@
+import { Tournament } from './tournament';
 export class League {
     Id: string;
     NameLeague: string;
@@ -5,6 +6,7 @@ export class League {
     Status: boolean;
     IdUsuario: string;
     Like: number;
+    Tournaments?: Tournament[]
 
     constructor(opt?: {Id: string,nameLeague: string, Description: string, Status: boolean, IdUsuario: string, Like: number}) {
         this.Id = opt != undefined ?opt.Id : '';

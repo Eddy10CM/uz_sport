@@ -13,6 +13,7 @@ import { CoachesComponent } from "./coaches/coaches.component";
 import { PlayersComponent } from './players/players.component';
 import { TeamsComponent } from "./teams/teams.component";
 import { AdminLeagueComponent } from './admin-league/admin-league.component';
+import { AdminTeamComponent } from './admin-team/admin-team.component';
 
 
 const routes: Routes = [
@@ -71,6 +72,11 @@ const routes: Routes = [
             {
                 path: 'adminLeague',
                 component: AdminLeagueComponent,
+                //canActivate: [AuthGuard]
+            },
+            {
+                path: 'adminTeam',
+                component: AdminTeamComponent,
                 //canActivate: [AuthGuard]
             }
         ]

@@ -36,6 +36,7 @@ export class LeagueComponent implements OnInit {
   }
 
   GetTournaments(idLeague: string) {
+    this.Tournaments = [];
     this._tournament.GetAll(idLeague)
     .subscribe(t => {this.Tournaments = t; console.log(t)});
   }

@@ -68,6 +68,10 @@
                     <input class="did-floating-input" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" autocomplete="off">
                     <label class="did-floating-label">{{ prop.label }}</label>
                 </div>
+                <div class="did-floating-label-content" *ngSwitchCase="'number'">
+                    <input class="did-floating-input" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type" [min]="prop.min" [max]="prop.max" autocomplete="off">
+                    <label class="did-floating-label">{{ prop.label }}</label>
+                </div>
                 <div class="did-floating-label-content" *ngSwitchCase="'password'">
                     <input class="did-floating-input" [type]="hide ? 'password' : 'text'" [formControlName]="prop.key" [id]="prop.key" [type]="prop.type">
                     <label class="did-floating-label">{{ prop.label }}</label>
@@ -92,6 +96,13 @@
                 <mat-form-field class="wrap-input100 m-b-16" appearance="fill" *ngSwitchCase="'select'">
                     <mat-label> {{ prop.label }} </mat-label>
                     <mat-select [formControlName]="prop.key" [id]="prop.key">
+                        <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
+                    </mat-select>
+                    <mat-hint align="end">Selecciona una opción</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="wrap-input100 m-b-16" appearance="fill" *ngSwitchCase="'multiple'">
+                    <mat-label> {{ prop.label }} </mat-label>
+                    <mat-select [formControlName]="prop.key" [id]="prop.key" multiple>
                         <mat-option *ngFor="let value of prop.values" [value]="value">{{ value }}</mat-option>
                     </mat-select>
                     <mat-hint align="end">Selecciona una opción</mat-hint>
