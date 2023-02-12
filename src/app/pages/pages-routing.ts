@@ -45,19 +45,19 @@ const routes: Routes = [
                 component: LeagueComponent
             },
             {
-                path: 'profile',
+                path: 'profile/:typeRole',
                 component: ProfileComponent,
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             {
                 path: 'member',
                 component: MemberComponent,
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             {
                 path: 'player',
                 component: PlayersComponent,
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             {
                 path: 'member/couches',
@@ -66,12 +66,12 @@ const routes: Routes = [
             {
                 path: 'team',
                 component: TeamsComponent,
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             },
             {
                 path: 'adminLeague',
                 component: AdminLeagueComponent,
-                canActivate: [AuthGuard]
+                //canActivate: [AuthGuard]
             }
         ]
     }

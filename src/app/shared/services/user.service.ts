@@ -13,8 +13,6 @@ export class UserService {
   constructor(private firestone: AngularFirestore, private auth: AuthService) { }
 
   GetUser(email: string) {
-    console.log("🚀 ~ file: user.service.ts ~ line 16 ~ UserService ~ GetUser ~ email", email)
-    console.log(this.auth.getToken)
     return this.firestone.collection<User>('Users',
     ref => ref.where('email', '==', email)
     .limit(1)
@@ -22,7 +20,6 @@ export class UserService {
     .snapshotChanges()
     .pipe(
       map((user) => {
-        console.log(user,"user")
         let Id = '';
         user.map((u) => {
           this.UserInfo = u.payload.doc.data() as User;

@@ -21,6 +21,7 @@ import { CardTableComponent } from './components/card-table/card-table.component
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { RatingCustomComponent } from './components/rating-custom/rating-custom.component';
 import { RatingItemCustomComponent } from './components/rating-item-custom/rating-item-custom.component';
+import { AddTournamentComponent } from './modals/add-tournament/add-tournament.component';
 
 
 
@@ -42,7 +43,8 @@ import { RatingItemCustomComponent } from './components/rating-item-custom/ratin
     CardTableComponent,
     CalendarComponent,
     RatingCustomComponent,
-    RatingItemCustomComponent
+    RatingItemCustomComponent,
+    AddTournamentComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +53,7 @@ import { RatingItemCustomComponent } from './components/rating-item-custom/ratin
     MaterialModule,
     NgImageSliderModule,
   ],
+  entryComponents: [AddTournamentComponent],
   exports: [
     FormComponent,
     CardLeagueComponent,
@@ -66,7 +69,8 @@ import { RatingItemCustomComponent } from './components/rating-item-custom/ratin
     CardMemberComponent,
     CardTableComponent,
     CalendarComponent,
-    RatingCustomComponent
+    RatingCustomComponent,
+    AddTournamentComponent
   ]
 })
 export class SharedModule { }

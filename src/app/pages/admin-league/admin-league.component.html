@@ -1,1 +1,30 @@
-<p>admin-league works!</p>
+<mat-tab-group>
+
+    <mat-tab label="Mis Ligas">
+
+        <mat-list>
+            <mat-list-item *ngFor="let league of MyLeagues">
+
+                <div class="col-6">{{league.NameLeague}}</div>
+                <div class="col-6"> <button mat-raised-button color="primary" (click)="createTournamnet(league.Id)">Crear torneo</button></div>
+
+            </mat-list-item>
+        </mat-list>
+
+    </mat-tab>
+
+    <mat-tab label="Crear Liga">
+
+        <div class="container-login100">
+            <app-form [titleForm]="'Crear Liga'" [FormJson]="JSONLeague" [reset]="resetLeague" [NameButton]="'Registrar'" (DelegateEvent)="ValidateForm($event)"></app-form>
+        </div>
+        <!--ng-template #showLoading>
+            <app-loading></app-loading>
+        </ng-template-->
+
+    </mat-tab>
+
+
+
+
+</mat-tab-group>

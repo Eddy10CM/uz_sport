@@ -62,13 +62,11 @@ export class FullComponent implements OnInit {
     this._LeagueService.GetAll()
     .subscribe(x => {
       this.leaguesClass = [];
-      console.log("🚀 ~ file: full.component.ts ~ line 21 ~ FullComponent ~ ngOnInit ~ x", x)
       this.leaguesClass = x
     });
 
     this._auth.getInfoUser()
     .subscribe(data => {
-      console.log("🚀 ~ file: full.component.ts ~ line 54 ~ FullComponent ~ ngOnInit ~ data", data)
       if (data) {
         this.MenuDynamic = MENULOGED
       } else  {

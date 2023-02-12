@@ -9,14 +9,14 @@ import { CardMember } from 'src/app/core/class/card-member';
 export class CardMemberComponent implements OnInit {
   
   @Input() cardMember: CardMember = new CardMember();
-  @Output() delegeteClick: EventEmitter<string> = new EventEmitter<string>();
+  @Output() delegeteClick: EventEmitter<CardMember> = new EventEmitter<CardMember>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  goPage(route: string) {
+  goPage(route: CardMember) {
     this.delegeteClick.emit(route);
   }
 

@@ -45,13 +45,13 @@ export class RegisterComponent implements OnInit {
 
   ValidateForm(form: FormGroup) {
     if (form.valid) {
-      this.loading = true;
+      this.loading = true;      
       this.auth.newUser(form.value)
       .subscribe({
         next: (value) => {
           this.auth.saveToken = value;
           this.loading = false;
-          this.router.navigate(['/uzsport/profile']);
+          this.router.navigate(['/uzsport/member']);
         },
         error: (e) => {
           this._alert.alertSimple(e.error.error.message);

@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { Login } from '../../core/class/login';
 import { User } from 'src/app/core/class/users';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -30,9 +30,17 @@ export class ProfileComponent implements OnInit {
   UsuarioLogeado!: User;
   IdUsuario: string = '';
 
-  constructor(private _league: LeagueService, private auth: AuthService, private user: UserService, private route: Router) { }
+  rolUser: number = 0;
+
+  constructor(private _league: LeagueService, private auth: AuthService, private user: UserService, private route: Router, private routerActive: ActivatedRoute) {
+    this.routerActive.params.subscribe((params: Params) => {
+      this.rolUser = Number(params['typeRole']);
+      console.log("🚀 ~ file: profile.component.ts:38 ~ ProfileComponent ~ this.routerActive.params.subscribe ~ this.rolUser", this.rolUser)
+    })
+  }
 
   ngOnInit(): void {
+    
     this.LoginUser = this.auth.getToken;
     if (this.LoginUser.idToken !== '') {
       this.user.GetUser(this.LoginUser.email).subscribe(d => {
@@ -70,14 +78,12 @@ export class ProfileComponent implements OnInit {
   }
 
   SaveUser(form: FormGroup){
-    console.log("🚀 ~ file: profile.component.ts:72 ~ ProfileComponent ~ SaveUser ~ form", new Date(form.get('birthday')?.value).toISOString())
-
     if (form.valid) {
       let newUser = new User({
         ...form.value
         ,birthday : new Date(form.get('birthday')?.value).toISOString().split('T')[0]
         ,email: this.LoginUser.email
-        ,role: ''
+        ,role: this.rolUser
         ,password:''
       });
       console.log("🚀 ~ file: profile.component.ts ~ line 76 ~ ProfileComponent ~ SaveUser ~ newUser", newUser)
@@ -86,7 +92,8 @@ export class ProfileComponent implements OnInit {
       .then((d) => {
         console.log("🚀 ~ file: profile.component.ts ~ line 87 ~ ProfileComponent ~ .then ~ d", d)
         this.auth.changeIsLogin(true);
-        this.route.navigate(['uzsport/member'])
+        //this.route.navigate(['uzsport/member'])
+        this.nextPague();
       })
       .catch((err) => {
         console.log('error', err)
@@ -97,5 +104,35 @@ export class ProfileComponent implements OnInit {
         this.ShowFormProfile = false;
       }, 100)
     }
+  }
+
+  nextPague(): void {
+    var pague: string;
+    switch (this.rolUser) {
+      case 1:
+        pague = 'adminLeague';
+        break;
+      case 2:
+        pague = 'adminLeague';
+        break;
+      case 3:
+        pague = 'adminLeague';
+        break;
+      case 4:
+        pague = 'adminLeague';
+        break;
+      case 5:
+        pague = 'adminLeague';
+        break;
+      default:
+        pague = 'adminLeague';
+        break;
+    }
+
+    this.navigate(pague);
+  }
+
+  navigate(pague: string): void {
+    this.route.navigate([`uzsport/${pague}`]);
   }
 }

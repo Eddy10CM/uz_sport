@@ -9,7 +9,7 @@ export class User {
     lastName: string;
     phone: number;
     photoUrl: string;
-    role: string;
+    role: number;
     password:string;
     //roles: string[];
 
@@ -23,7 +23,7 @@ export class User {
         lastName: string;
         phone: number;
         photoUrl: string;
-        role: string;
+        role: number;
         password:string;
 
         //roles: string[];
@@ -37,7 +37,7 @@ export class User {
         this.lastName = opt != undefined ? opt.lastName : '';
         this.phone = opt != undefined ? opt.phone : 0;
         this.photoUrl = opt != undefined ? opt.photoUrl : '';
-        this.role = opt != undefined ? opt.role : '';
+        this.role = opt != undefined ? opt.role : 0;
         this.password = opt != undefined ? opt.password : '';
         //this.roles = opt != undefined ? opt.roles : [];
     }

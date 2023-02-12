@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Tournament } from 'src/app/core/class/tournament';
 
 @Injectable({
@@ -26,5 +26,10 @@ export class TournamentService {
         return this.Tournaments;
       })
     )
+  }
+
+  AddTournament(tournamnet: Tournament) {
+    const resp = this.firestore.collection<Tournament>('Tournament').add(tournamnet)
+    return resp;
   }
 }

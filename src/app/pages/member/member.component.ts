@@ -13,27 +13,32 @@ export class MemberComponent implements OnInit {
   cardsMember: CardMember[] = [{
     title: 'League',
     subtitulo: 'Crear ligas y torneos',
-    route: '/uzsport/league'
+    route: '/uzsport/profile',
+    typeRol: 1
   },
   {
     title: 'Team',
     subtitulo: 'Crear equipos',
-    route: '/uzsport/team'
+    route: '/uzsport/profile',
+    typeRol: 2
   },
   {
     title: 'Player',
     subtitulo: 'Crear jugadores',
-    route: '/uzsport/player'
+    route: '/uzsport/profile',
+    typeRol: 3
   },
   {
     title: 'Referee',
     subtitulo: 'Crear arbitros',
-    route: '/uzsport/member'
+    route: '/uzsport/profile',
+    typeRol: 4
   },
   {
     title: 'Coach',
     subtitulo: 'Crear entrenadores',
-    route: '/uzsport/member/couches'
+    route: '/uzsport/profile',
+    typeRol: 5
   }];
 
   constructor(private route: Router) { }
@@ -41,8 +46,7 @@ export class MemberComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  nextPage(route: string) {
-    this.route.navigate([route]);
-    console.log("🚀 ~ file: member.component.ts:44 ~ MemberComponent ~ nextPage ~ route", route)
+  nextPage(card: CardMember) {
+    this.route.navigate([card.route,card.typeRol]);
   }
 }

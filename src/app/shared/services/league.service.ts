@@ -9,6 +9,7 @@ import { League } from '../../core/class/league';
 export class LeagueService {
   LeaagueCollection!: AngularFirestoreCollection<League>;
   Leagues: League[] = [];
+  MyLeagues: League[] = [];
 
   constructor(private firestore: AngularFirestore) {
     //this.LeaagueCollection = this.firestore.collection<League>('Leagues');
@@ -50,4 +51,34 @@ export class LeagueService {
     const resp = this.firestore.collection<League>('Leagues').add(league)
     return resp;
   }
+
+  GetMyLeagues(IdUser: string) {
+    let LeagueLocal: League;
+    /*return this.firestore.collection<League>('Leagues', ref => ref.where('IdUsuario', '==', IdUser)).snapshotChanges()
+    .pipe(
+      map((data) => {
+        console.log("🚀 ~ file: league.service.ts:60 ~ LeagueService ~ map ~ data", data)
+        data.map((league) => {
+          LeagueLocal = league.payload.doc.data() as League;
+          LeagueLocal.Id = league.payload.doc.id;
+        })
+        return LeagueLocal;
+      })
+    );*/
+
+    return this.firestore.collection<League>('Leagues', ref => ref.where('IdUsuario', '==', IdUser)).snapshotChanges()
+    .pipe(
+      map((league) => {
+        this.MyLeagues = [];
+        league.map((l) => {
+          const data = l.payload.doc.data() as League;
+          data.Id = l.payload.doc.id;
+          this.MyLeagues.push(data);
+        })
+        return this.MyLeagues;
+      })
+    );
+    //collection('Login', ref => ref.where('username', '==', 'up.ulises.o@gmail.com')).valueChanges();
+  }
+
 }
