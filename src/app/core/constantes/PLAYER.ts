@@ -41,11 +41,28 @@ export const PLAYERFORM = {
         }
     },
     email: {
-        label: 'correo',
+        label: 'Correo',
         value: '',
         type: 'text',
         validation: {
             required: true
         }
-    }
+    },
+  
+    Contact: {
+        label: 'Contacto',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
+    socialMedia: {
+        label: 'Red Social',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
 } 

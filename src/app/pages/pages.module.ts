@@ -19,6 +19,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { MemberComponent } from './member/member.component';
 import { AdminLeagueComponent } from './admin-league/admin-league.component';
 import { AdminTeamComponent } from './admin-team/admin-team.component';
+import { AdminCouchesComponent } from './admin-couches/admin-couches.component';
+import { AdminRefereesComponent } from './admin-referees/admin-referees.component';
+import { AdminPlayersComponent } from './admin-players/admin-players.component';
 
 
 
@@ -38,7 +41,10 @@ import { AdminTeamComponent } from './admin-team/admin-team.component';
     ProfileComponent,
     MemberComponent,
     AdminLeagueComponent,
-    AdminTeamComponent
+    AdminTeamComponent,
+    AdminCouchesComponent,
+    AdminRefereesComponent,
+    AdminPlayersComponent
   ],
   imports: [
     CommonModule,

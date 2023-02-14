@@ -1,0 +1,26 @@
+<mat-tab-group>
+
+    <mat-tab label="Couches">
+
+      <app-card-table [headers]="headers" [body]="couches" 
+      (DelegateEditar)="Editar($event)"
+      (DelegateEliminar)="Eliminar($event)"
+      *ngIf="couches.length > 0"></app-card-table>
+
+    </mat-tab>
+
+    <mat-tab label="Agregar Couch">
+
+        <div class="container-login100">
+            <app-form [titleForm]="'Agregar Couch'" [FormJson]="JSONForm" [reset]="resetCouch" [NameButton]="'Registrar'" (DelegateEvent)="ValidateForm($event)"></app-form> 
+        </div>
+        <!--ng-template #showLoading>
+            <app-loading></app-loading>
+        </ng-template-->
+
+    </mat-tab>
+
+
+
+
+</mat-tab-group>

@@ -117,19 +117,19 @@ export class ProfileComponent implements OnInit {
         pague = 'adminTeam';
         break;
       case 3:
-        pague = 'adminLeague';
+        pague = 'players';
         break;
       case 4:
-        pague = 'adminLeague';
+        pague = 'referees';
         break;
       case 5:
-        pague = 'adminLeague';
+        pague = 'couches';
         break;
       default:
         pague = 'adminLeague';
         break;
     }
-
+    console.log(pague,"pague")
     this.navigate(pague);
   }
 

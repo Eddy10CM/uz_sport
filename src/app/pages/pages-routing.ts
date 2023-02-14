@@ -14,6 +14,9 @@ import { PlayersComponent } from './players/players.component';
 import { TeamsComponent } from "./teams/teams.component";
 import { AdminLeagueComponent } from './admin-league/admin-league.component';
 import { AdminTeamComponent } from './admin-team/admin-team.component';
+import { AdminCouchesComponent } from "./admin-couches/admin-couches.component";
+import { AdminRefereesComponent } from "./admin-referees/admin-referees.component";
+import { AdminPlayersComponent } from "./admin-players/admin-players.component";
 
 
 const routes: Routes = [
@@ -55,14 +58,22 @@ const routes: Routes = [
                 component: MemberComponent,
                 //canActivate: [AuthGuard]
             },
-            {
-                path: 'player',
-                component: PlayersComponent,
+            // {
+                // path: 'player',
+                // component: PlayersComponent,
                 //canActivate: [AuthGuard]
+            // },
+            {
+                path: 'couches',
+                component: AdminCouchesComponent
             },
             {
-                path: 'member/couches',
-                component: CoachesComponent 
+                path: 'referees',
+                component: AdminRefereesComponent
+            },
+            {
+                path: 'players',
+                component: AdminPlayersComponent
             },
             {
                 path: 'team',

@@ -22,6 +22,9 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { RatingCustomComponent } from './components/rating-custom/rating-custom.component';
 import { RatingItemCustomComponent } from './components/rating-item-custom/rating-item-custom.component';
 import { AddTournamentComponent } from './modals/add-tournament/add-tournament.component';
+import { AddCouchComponent } from './modals/add-couch/add-couch.component';
+import { AddRefereeComponent } from './modals/add-referee/add-referee.component';
+import { AddPlayerComponent } from './modals/add-player/add-player.component';
 
 
 
@@ -44,7 +47,10 @@ import { AddTournamentComponent } from './modals/add-tournament/add-tournament.c
     CalendarComponent,
     RatingCustomComponent,
     RatingItemCustomComponent,
-    AddTournamentComponent
+    AddTournamentComponent,
+    AddCouchComponent,
+    AddRefereeComponent,
+    AddPlayerComponent,
   ],
   imports: [
     CommonModule,

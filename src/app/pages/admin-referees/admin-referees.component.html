@@ -1,0 +1,26 @@
+<mat-tab-group>
+
+    <mat-tab label="Referees">
+
+      <app-card-table [headers]="headers" [body]="referees" 
+      (DelegateEditar)="Editar($event)"
+      (DelegateEliminar)="Eliminar($event)"
+      *ngIf="referees.length > 0"></app-card-table>
+
+    </mat-tab>
+
+    <mat-tab label="Agregar Referee">
+
+        <div class="container-login100">
+            <app-form [titleForm]="'Agregar Referee'" [FormJson]="JSONForm" [reset]="resetReferee" [NameButton]="'Registrar'" (DelegateEvent)="ValidateForm($event)"></app-form> 
+        </div>
+        <!--ng-template #showLoading>
+            <app-loading></app-loading>
+        </ng-template-->
+
+    </mat-tab>
+
+
+
+
+</mat-tab-group>
