@@ -58,7 +58,7 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Roboto', "Helvetica Neue", sans-serif;
 }
 
 * .example-card {
@@ -151,6 +151,15 @@ body {
 }
 .contenedor-tabla .eliminar{
     color:rgb(248, 11, 11)
+}
+.fa-facebook{
+  color:#4267B2!important
+}
+.bi-instagram{
+  color:#E1306C!important
+}
+.bi-whatsapp{
+  color:#25D366!important
 }
 .contenedor-tabla .editar:hover,.contenedor-tabla .eliminar:hover{
     opacity: 0.65;
@@ -818,7 +827,9 @@ app-form mat-button-toggle-group mat-button-toggle{
 
 
 
-
+.mat-form-field-label-wrapper{
+  text-transform: uppercase;
+}
 
   .example-container {
     display: flex;
