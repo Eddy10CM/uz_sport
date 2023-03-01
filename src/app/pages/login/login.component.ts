@@ -84,6 +84,7 @@ export class LoginComponent implements OnInit {
   }
 
   nextPague(rolUser: number): void {
+    console.log("🚀 ~ file: login.component.ts:87 ~ LoginComponent ~ nextPague ~ rolUser:", rolUser)
     var pague: string;
     switch (rolUser) {
       case 1:
