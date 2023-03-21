@@ -58,7 +58,7 @@ body {
 
 body {
     margin: 0;
-    font-family: 'Roboto', "Helvetica Neue", sans-serif;
+    font-family: 'Roboto';
 }
 
 * .example-card {
@@ -303,7 +303,7 @@ app-carousels .card img {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: Roboto;
+    font-family: 'Roboto';
 }
 .wrap-login100 {
     width: 390px;
@@ -321,7 +321,7 @@ app-carousels .card img {
 }
 
 .login100-form-title {
-    font-family: Ubuntu-Bold;
+    font-family: 'Roboto';
     font-size: 30px;
     color: #403866;
     line-height: 1.2;
@@ -347,7 +347,7 @@ app-carousels .card img {
 /*---------------------------------------------*/
 
 .input100 {
-    font-family: Ubuntu-Bold;
+    font-family: 'Roboto';
     color: #403866;
     line-height: 1.2;
     font-size: 18px;
@@ -414,7 +414,7 @@ app-carousels .card img {
 }
 
 .label-checkbox100 {
-    font-family: Ubuntu-Regular;
+    font-family: 'Roboto';
     font-size: 16px;
     color: #999999;
     line-height: 1.2;
@@ -470,7 +470,7 @@ app-carousels .card img {
 }
 
 .login100-form-btn {
-    font-family: Ubuntu-Bold;
+    font-family: 'Roboto';
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
@@ -512,7 +512,7 @@ app-carousels .card img {
 
 app-form .container-form{
     width: 100%;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
   }
   .did-floating-label-content { 
     position:relative; 

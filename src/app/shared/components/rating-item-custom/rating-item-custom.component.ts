@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+interface Rate{
+  active:boolean;
+  index:number;
+}
 @Component({
   selector: 'app-rating-item-custom',
   templateUrl: './rating-item-custom.component.html',
@@ -25,7 +28,7 @@ export class RatingItemCustomComponent implements OnInit {
   @Input() rate:number=0
   @Output() rateChange: EventEmitter<number> = new EventEmitter<number>();
   @Input() readonly:boolean=false
-  rates:number[]=[]
+  rates:Rate[]=[]
   fills:boolean[]=[]
   constructor() { }
 
@@ -34,21 +37,43 @@ export class RatingItemCustomComponent implements OnInit {
     this.crearRates(this.max)
   
   }
-  ratingClick(rateItem:number){
-
-    for (let index = 0; index < this.fills.length; index++) {
-      this.fills[index] = false;      
-    }
-    for (let index = rateItem; index < this.fills.length && index>=0; index--) {
-      this.fills[index] = true;
-      
-    }
+  
+  ratingHover(rateItem:number){
+    // this.fills[rateItem] = true;
+    this.fills.forEach((item,index)=>{
+      this.fills[index] = index<=rateItem; 
+    })
     console.log(this.fills,"this.fills")
+    console.log(rateItem,"rateItem")
+  }
+  ratingDesHover(rateItem:number){
+    this.fills.forEach((item,index)=>{
+      this.fills[index] = false;  
+    })
+  }
+  ratingClick(rateItem:number){
+    // this.rates[rateItem].active=true;
+    if(this.rates.filter(x=>x.active).length ===1){
+      this.rates[rateItem].active = !this.rates[rateItem].active
+    }else{
+
+      this.rates.forEach((element,index) => {
+        if(index <= rateItem) this.rates[index].active = true
+        else this.rates[index].active = false
+      });
+    }
+    // for (let index = this.rates.length; index <= this.rates.length; index--) {
+      // this.fills[index] = true;
+    // }
+    // console.log(this.fills,"this.fills")
     console.log(rateItem,"rateItem")
   }
   crearRates(max:number){
     for (let index = 0; index < max; index++) {
-      this.rates.push(index);      
+      this.rates.push({
+        index,
+        active:false
+      });      
       this.fills.push(index<=this.rate-1);
     }
   }

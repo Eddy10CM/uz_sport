@@ -22,7 +22,7 @@ import { Subscription } from 'rxjs';
       font-family: 'Material Icons'!important;
     }
     *{
-        font-family:uz_sport
+        font-family:'Roboto'
     }
     .square-green{
       color:#90c43c!important
