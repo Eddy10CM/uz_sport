@@ -3,5 +3,5 @@
 (click)="ratingClick(rateItem.index)" 
 (mouseleave)="ratingDesHover(rateItem.index)"
 *ngFor="let rateItem of rates;let i = index" 
-[ngClass]="{'hoverbalon': rateItem.active}"
+[ngClass]="{'hoverbalon': rateItem.active || (!rateItem.active && fills[rateItem.index])}"
 >

@@ -9,9 +9,9 @@ interface Rate{
   styles: [
     `
     .balon{
-      width:2.2em;
-      margin-right:.6em
-
+      width:1.8em;
+      margin-right:.4em;
+      filter: invert(100%);
     }
     .balon:hover{
       filter: invert(67%) sepia(89%) saturate(7492%) hue-rotate(346deg) brightness(80%) contrast(212%);
@@ -50,6 +50,7 @@ export class RatingItemCustomComponent implements OnInit {
     this.fills.forEach((item,index)=>{
       this.fills[index] = false;  
     })
+    // if(rateItem > 0) this.fills[0] = false;
   }
   ratingClick(rateItem:number){
     if(this.rates.filter(x=>x.active).length ===1){
