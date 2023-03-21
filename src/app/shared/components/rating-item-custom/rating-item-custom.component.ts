@@ -52,14 +52,13 @@ export class RatingItemCustomComponent implements OnInit {
     })
   }
   ratingClick(rateItem:number){
-    // this.rates[rateItem].active=true;
     if(this.rates.filter(x=>x.active).length ===1){
       this.rates[rateItem].active = !this.rates[rateItem].active
     }else{
-
+      this.rates[rateItem].active=!this.rates[rateItem].active;
       this.rates.forEach((element,index) => {
-        if(index <= rateItem) this.rates[index].active = true
-        else this.rates[index].active = false
+        if(index < rateItem) this.rates[index].active = true
+        else if(index !== rateItem) this.rates[index].active = false
       });
     }
     // for (let index = this.rates.length; index <= this.rates.length; index--) {
