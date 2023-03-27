@@ -9,8 +9,8 @@ interface Rate{
   styles: [
     `
     .balon{
-      width:1.8em;
-      margin-right:.4em;
+      width:1.3em;
+      margin-right:.5em;
       filter: invert(100%);
     }
     .balon:hover{
@@ -69,12 +69,12 @@ export class RatingItemCustomComponent implements OnInit {
     console.log(rateItem,"rateItem")
   }
   crearRates(max:number){
-    for (let index = 0; index < max; index++) {
+    for (let index = 1; index <= max; index++) {
       this.rates.push({
-        index,
-        active:false
+        index:Number(index-1),
+        active:(index-1)<=(this.rate-1)
       });      
-      this.fills.push(index<=this.rate-1);
+      this.fills.push( (index-1)<=(this.rate-1));
     }
   }
 }

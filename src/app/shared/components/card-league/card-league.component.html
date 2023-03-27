@@ -19,7 +19,10 @@
     <mat-card-content>
         <div class="row mb-2">
             <div class="col-6">Rate (by players)</div>
-            <div class="col-6 right"><app-rating-custom></app-rating-custom></div>
+            <div class="col-6 right"><app-rating-custom
+                [numberRating]="4"
+                [max]="5"
+                ></app-rating-custom></div>
         </div>
         <div class="row mb-2">
             <div class="col-6">Fans like</div>
@@ -27,7 +30,7 @@
                 class="fa fa-thumbs-up" aria-hidden="true"></i>   </div>
         </div>
         <div class="row">
-            <div class="col-6">Rate (by players)</div>
+            <div class="col-6">BASKETBALL</div>
             <div class="col-6 right"><button style="float: right;
                 width: auto;margin-left: auto;background-color:#90c43c;color:white;border-radius:5px">Like <i
                         class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>

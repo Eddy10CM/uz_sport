@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-rating-custom',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class RatingCustomComponent implements OnInit {
-  numberRating:number=0
+  @Input() numberRating:number=0
+  @Input() max:number=5
   constructor() { }
 
   ngOnInit(): void {

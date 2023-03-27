@@ -29,10 +29,24 @@
 
                     <h1 style="text-align:center">TNB Sabatina</h1>
                     <p>"Liga familiar en Viveros de Coyoacán ·Explota tu pasión"</p>
-                    <div class="col-12">Rate (by players <span style="float: right;
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-4">Rate (by players</div>
+                            <div class="col-8 right">
+                                <app-rating-custom
+                                [numberRating]="4"
+                                [max]="5"
+                                ></app-rating-custom>
+                            </div>
+                        </div>
+                         
+                        
+                        <!-- <span style="float: right;
                         width: auto;color:#90c43c!important;margin-left: auto;"><i class="bi bi-star-fill"></i><i
                                 class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
+                                class="bi bi-star-half"></i><i class="bi bi-star"></i></span> -->
+
+
                     </div>
                     <div class="col-12">Fans like <span style="float: right;
                         width: auto;margin-left: auto;color:white"><b>125</b>&nbsp;<i class="fa fa-thumbs-up"
