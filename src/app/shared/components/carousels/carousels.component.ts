@@ -10,7 +10,7 @@ export class CarouselsComponent implements OnInit {
   
   constructor(private elementRef:ElementRef) { }
   @Input() tipoImagen:string="square-image";
-  imageObject: Array<object> = [
+  @Input() imageObject: Array<object> = [
     {
       image: 'assets/img/01.jpg',
         thumbImage: 'assets/img/01.jpg',

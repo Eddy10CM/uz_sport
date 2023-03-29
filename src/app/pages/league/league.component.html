@@ -16,5 +16,6 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-2" *ngFor="let league of Tournaments"> {{league.Name}} </div>
+    <!-- <div class="col-2" *ngFor="let league of Tournaments"> {{league.Name}} </div> -->
+    <app-carousels [tipoImagen]="'circle-image'" [imageObject]="imageObject" *ngIf="imageObject.length>0"></app-carousels>
 </div>
