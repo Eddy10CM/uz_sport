@@ -15,7 +15,7 @@ export class ScoreComponent implements OnInit {
   pointsTeam1: number = 0;
   pointsTeam2: number = 0;
   QuarterTime: string = '1 er';
-
+  pararCronometro:boolean = true;
   foulsTeam1: Foul[] = [{
     Id: 1,
     Foul: false
@@ -65,25 +65,36 @@ export class ScoreComponent implements OnInit {
   alertFoulTeam2: boolean = false;
 
   pointsBTNS: Point[] = POINTS;
-
+  countClicks:number=0
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  
   StartGame() {
+    this.pararCronometro=!this.pararCronometro;
     this.countDown = timer(0, this.tick)
     .subscribe((x) => {
-      if (this.counterQuarter == 1 && x) {
+      console.log(x,"x")
+      if (this.counterQuarter == 0){
         if (this.countDown) {
-          //this.countDown.unsubscribe();
-          this.counterQuarter = 900;
+          this.countDown.unsubscribe();
+          // this.counterQuarter = 24;
         }
       }
-      --this.counterQuarter;
+      if(!this.pararCronometro){      
+        if (this.counterQuarter > 0) --this.counterQuarter;
+      }else{
+        this.countDown.unsubscribe();
+      }
     });
   }
-
+  StopGame(){
+    if (this.countDown) {
+      this.countDown.unsubscribe();
+      this.counterQuarter = 24;
+    }
+  }
 
   addPoints(valuePoint: number, team: number) {
     if (team == 1) {
