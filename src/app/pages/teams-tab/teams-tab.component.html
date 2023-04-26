@@ -1,0 +1,12 @@
+
+<label class="title"
+>
+Equipos
+</label>
+<app-card-table [headers]="headers" [body]="teamses" 
+(DelegateEditar)="Editar($event)"
+(DelegateEliminar)="Eliminar($event)"
+*ngIf="teamses.length > 0"></app-card-table>
+<div class="container-form">
+    <app-form [FormJson]="JSONForm" [NameButton]="'Guardar'" [titleForm]="'Equipos'" [reset]="resetForm" (DelegateEvent)="Guardar($event)"></app-form>
+</div>

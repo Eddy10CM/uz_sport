@@ -1,42 +1,50 @@
 export class Team {
-    name: string;
-    birthday: string;
-    teamLogo: string;
-    email: string;
-    firstName: string;
-    gender: string;
-    lastName: string;
-    phone: number;
-    photoUrl: string;
-    role: number;
-    password:string;
-
+    Id?:number;
+    Name: string;
+    Birthday: string;
+    TeamLogo: string;
+    Category:string;
+    Captain:string;
+    Contact:string;
+    Email: string;    
+    PhotoUrl: string;
+    socialMedia:string;
+    Rate:string;
+    Players:string;//{Name:string;Id:number}[]
+    fansLike:string;
+    City:string;
     constructor(opt?: {
-        name: string;
-        birthday: string;
-        teamLogo: string;
-        email: string;
-        firstName: string;
-        gender: string;
-        lastName: string;
-        phone: number;
-        photoUrl: string;
-        role: number;
-        password:string;
+        Id:number;
+        Name: string;
+        Birthday: string;
+        TeamLogo: string;
+        Category:string;
+        Captain:string;
+        Contact:string;
+        Email: string;    
+        PhotoUrl: string;
+        socialMedia:string;
+        Rate:string;
+        Players:string;//{Name:string;Id:number}[]
+        fansLike:string;
+        City:string;
 
         //roles: string[];
     }) {
-        this.name = opt != undefined ? opt.name : '';
-        this.birthday = opt != undefined ? opt.birthday : '';
-        this.teamLogo = opt != undefined ? opt.teamLogo : '';
-        this.email = opt != undefined ? opt.email : '';
-        this.firstName = opt != undefined ? opt.firstName : '';
-        this.gender = opt != undefined ? opt.gender : '';
-        this.lastName = opt != undefined ? opt.lastName : '';
-        this.phone = opt != undefined ? opt.phone : 0;
-        this.photoUrl = opt != undefined ? opt.photoUrl : '';
-        this.role = opt != undefined ? opt.role : 0;
-        this.password = opt != undefined ? opt.password : '';
-        //this.roles = opt != undefined ? opt.roles : [];
+        this.Id = opt != undefined ? opt.Id:0;   
+        this.Name = opt != undefined ? opt.Name:'';        
+        this.Birthday = opt != undefined ? opt.Birthday:'';        
+        this.TeamLogo = opt != undefined ? opt.TeamLogo:'';        
+        this.Category = opt != undefined ? opt.Category:'';        
+        this.Captain = opt != undefined ? opt.Captain:'';        
+        this.Contact = opt != undefined ? opt.Contact:'';        
+        this.Email = opt != undefined ? opt.Email:'';        
+        this.PhotoUrl = opt != undefined ? opt.PhotoUrl:'';        
+        this.socialMedia = opt != undefined ? opt.socialMedia:'';        
+        this.Rate = opt != undefined ? opt.Rate:'';        
+        this.Players = opt != undefined ? opt.Players:'';        
+        this.fansLike = opt != undefined ? opt.fansLike:'';        
+        this.City = opt != undefined ? opt.City:'';        
+       
     }
 }

@@ -1,5 +1,5 @@
 export const TEAMFORM = {
-    name: {
+    Name: {
         label: 'Nombre equipo',
         value: '',
         type: 'text',
@@ -7,7 +7,15 @@ export const TEAMFORM = {
           required: true,
         }
     },
-    teamLogo: {
+    Birthday: {
+        label: 'Cumpleaños',
+        value: '',
+        type: 'date',
+        validation: {
+            required: false
+        }
+    },
+    TeamLogo: {
         label: 'Logo equipo',
         value: '',
         type: 'file',
@@ -15,15 +23,7 @@ export const TEAMFORM = {
             required: false
         }
     },
-    photoTeam: {
-        label: 'Foto',
-        value: '',
-        type: 'file',
-        validation: {
-            required: false
-        }
-    },
-    category: {
+    Category: {
         label: 'Categoria',
         value: '',
         type: 'select',
@@ -32,15 +32,71 @@ export const TEAMFORM = {
             required: true
         }
     },
-    birthday: {
-        label: 'Cumpleaños',
+    Captain: {
+        label: 'Capitan',
         value: '',
-        type: 'date',
+        type: 'text',
+        validation: {
+          required: true,
+        }
+    },
+    Contact: {
+        label: 'Contacto',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
+    Email: {
+        label: 'Correo',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
+    PhotoUrl: {
+        label: 'Foto',
+        value: '',
+        type: 'file',
         validation: {
             required: false
         }
     },
-    city: {
+    socialMedia: {
+        label: 'Social Media',
+        value: '',
+        type: 'text',
+        validation: {
+          required: true,
+        }
+    },
+    Rate: {
+        label: 'Rate',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
+    Players: {
+        label: 'Jugadores',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
+    fansLike: {
+        label: 'Likes',
+        value: '',
+        type: 'text',
+        validation: {
+            required: true
+        }
+    },
+    City: {
         label: 'Ciudad',
         value: '',
         type: 'text',

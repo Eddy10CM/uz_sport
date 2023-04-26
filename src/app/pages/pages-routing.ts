@@ -17,6 +17,7 @@ import { AdminTeamComponent } from './admin-team/admin-team.component';
 import { AdminCouchesComponent } from "./admin-couches/admin-couches.component";
 import { AdminRefereesComponent } from "./admin-referees/admin-referees.component";
 import { AdminPlayersComponent } from "./admin-players/admin-players.component";
+import { TeamsTabComponent } from "./teams-tab/teams-tab.component";
 
 
 const routes: Routes = [
@@ -66,6 +67,10 @@ const routes: Routes = [
             {
                 path: 'couches',
                 component: AdminCouchesComponent
+            },
+            {
+                path: 'TeamsTab',
+                component: TeamsTabComponent
             },
             {
                 path: 'referees',

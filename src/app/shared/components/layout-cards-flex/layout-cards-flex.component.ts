@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 export interface ImagenCardFlex{
   url:string;
   titulo:string
@@ -44,7 +44,7 @@ export interface ImagenCardFlex{
   ]
 })
 export class LayoutCardsFlexComponent implements OnInit {
-  imagenes:ImagenCardFlex[] = [
+  @Input() imagenes:ImagenCardFlex[] = [
     {
       url:'assets/img/01.jpg',
       titulo:'Imagen 1'
@@ -66,6 +66,7 @@ export class LayoutCardsFlexComponent implements OnInit {
       titulo:'Imagen 5'
     }
   ];
+  @Input() titulo:string="Titulo de layout"
   constructor() { }
 
   ngOnInit(): void {
